@@ -41,7 +41,7 @@ const App = () => {
         setFinishResults("Results are submitted!");
       }
     } catch (err) {
-      setFinishResults("Rusults were not submitted: " + err);
+      setFinishResults("Results were not submitted: " + err);
     }
   };
 
