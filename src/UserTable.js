@@ -8,9 +8,9 @@ const UserTable = ({ currentUserEmail }) => {
   const [currentUserPosition, setCurrentUserPosition] = useState(-1);
 
   useEffect(() => {
-    // fetch("https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/users")
-    new Promise((resolve) => setTimeout(() => resolve(data), 100))
-      //   .then((response) => response.json())
+    fetch("https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/users")
+      // new Promise((resolve) => setTimeout(() => resolve(data), 100))
+      .then((response) => response.json())
       .then((data) => {
         const sortedData = data
           .map((u, index) => ({ ...u, index }))
