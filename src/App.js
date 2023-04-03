@@ -57,7 +57,7 @@ const App = () => {
       <UserContext.Provider value={userContextValue}>
         <UserInfo />
         <StartForm onStartQuiz={handleStartQuiz} onFinishQuiz={onFinishQuiz} />
-        <h2>{finishResults}</h2>
+        <div>{finishResults}</div>
         {finishResults && <UserTable currentUserEmail={email} />}
       </UserContext.Provider>
     </div>

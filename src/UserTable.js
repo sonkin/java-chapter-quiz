@@ -45,7 +45,7 @@ const UserTable = ({ currentUserEmail }) => {
 
   return (
     <div>
-      {currentUser && <h3>Your position in rating: {currentUserPosition}</h3>}
+      {currentUser && <h2>Your position in rating: {currentUserPosition}</h2>}
       <p>You can repeat the test to improve your position.</p>
       <table className="user-table">
         <thead>
