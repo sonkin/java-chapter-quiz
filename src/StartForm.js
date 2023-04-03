@@ -8,9 +8,7 @@ const StartForm = ({ onStartQuiz }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
-  const { name, setName, email, setEmail } = useContext(
-    UserContext
-  );
+  const { name, setName, email, setEmail } = useContext(UserContext);
 
   const handleStartQuiz = () => {
     const valid = validateForm();
@@ -53,7 +51,7 @@ const StartForm = ({ onStartQuiz }) => {
       {!showQuiz && (
         <div>
           <h2>
-            TOM 1: Collections <br />
+            Topic 1: Collections <br />
             <br />
             QUIZ 1: Collections Hierarchy
           </h2>
@@ -79,10 +77,7 @@ const StartForm = ({ onStartQuiz }) => {
             />
             <div style={{ color: "red" }}>{emailError}</div>
           </div>
-          <button
-            className="button-style"
-            onClick={handleStartQuiz}
-          >
+          <button className="button-style" onClick={handleStartQuiz}>
             Start Quiz
           </button>
         </div>
