@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import QuizQuestion from "./QuizQuestion";
 
-const Quiz = ({ questions }) => {
+const Quiz = ({ questions, onFinishQuiz }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [solvedQuestions, setSolvedQuestions] = useState([]);
   const [score, setScore] = useState(0);
@@ -18,6 +18,7 @@ const Quiz = ({ questions }) => {
   const handleNextClick = () => {
     if (currentQuestionIndex === questions.length - 1) {
       setCurrentQuestionIndex(null);
+      onFinishQuiz(score);
     } else {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }

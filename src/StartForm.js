@@ -4,7 +4,7 @@ import { questions } from "./questions";
 import Quiz from "./Quiz";
 import "./styles.css"; // import your CSS file here
 
-const StartForm = ({ onStartQuiz }) => {
+const StartForm = ({ onStartQuiz, onFinishQuiz }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -86,7 +86,7 @@ const StartForm = ({ onStartQuiz }) => {
           </button>
         </div>
       )}
-      {showQuiz && <Quiz questions={questions} />}
+      {showQuiz && <Quiz questions={questions} onFinishQuiz={onFinishQuiz} />}
     </div>
   );
 };
