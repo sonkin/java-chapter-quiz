@@ -28,13 +28,14 @@ const App = () => {
     name,
     setName,
     email,
-    setEmail
+    setEmail,
   };
   return (
     <UserContext.Provider value={userContextValue}>
       <div className="App">
         <UserInfo />
         <StartForm onStartQuiz={handleStartQuiz} />
+        Quiz v.0.0.1
       </div>
     </UserContext.Provider>
   );
