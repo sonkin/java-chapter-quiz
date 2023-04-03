@@ -53,16 +53,11 @@ const App = () => {
   };
   return (
     <div className="App">
-      <div className="main">
-        <UserContext.Provider value={userContextValue}>
-          <UserInfo />
-          <StartForm
-            onStartQuiz={handleStartQuiz}
-            onFinishQuiz={onFinishQuiz}
-          />
-          <h2>{finishResults}</h2>
-        </UserContext.Provider>
-      </div>
+      <UserContext.Provider value={userContextValue}>
+        <UserInfo />
+        <StartForm onStartQuiz={handleStartQuiz} onFinishQuiz={onFinishQuiz} />
+        <h2>{finishResults}</h2>
+      </UserContext.Provider>
       <div className="footer">Quiz v.0.0.2</div>
     </div>
   );

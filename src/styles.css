@@ -2,7 +2,6 @@
   font-size: 5pt;
   text-align: center;
   margin-top: auto;
-  margin-bottom: 10px;
 }
 .topUserInfo {
   display: flex;
@@ -13,10 +12,7 @@
   background-color: #eef;
 }
 .App {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 100vh; /* Set the body to fill the entire viewport height */
+  height: 80vh; /* Set the body to fill the entire viewport height */
   margin: 5px;
   font-family: sans-serif;
   text-align: center;
