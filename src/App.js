@@ -2,13 +2,14 @@ import "./styles.css";
 import StartForm from "./StartForm";
 import { createContext, useEffect, useState } from "react";
 import UserInfo from "./UserInfo";
+import UserTable from "./UserTable";
 
 export const UserContext = createContext();
 
 const App = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [finishResults, setFinishResults] = useState("");
+  const [finishResults, setFinishResults] = useState(null);
   const handleStartQuiz = () => {
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
@@ -57,8 +58,8 @@ const App = () => {
         <UserInfo />
         <StartForm onStartQuiz={handleStartQuiz} onFinishQuiz={onFinishQuiz} />
         <h2>{finishResults}</h2>
+        {finishResults && <UserTable currentUserEmail={email} />}
       </UserContext.Provider>
-      <div className="footer">Quiz v.0.0.2</div>
     </div>
   );
 };

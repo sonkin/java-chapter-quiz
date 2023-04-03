@@ -32,7 +32,7 @@ const Quiz = ({ questions, onFinishQuiz }) => {
       <div
         style={{
           textAlign: "center",
-          marginBottom: "10px",
+          marginTop: "20px",
           fontWeight: "bold",
         }}
       >

@@ -3,11 +3,9 @@ import React, { useEffect, useState } from "react";
 const QuizQuestion = ({ question, onSolved, score }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
-  const [showExplanation, setShowExplanation] = useState(false);
   const [showScoreUpdate, setShowScoreUpdate] = useState(false);
 
   useEffect(() => {
-    setShowExplanation(false);
     setShowScoreUpdate(false);
     setIsCorrect(null);
     setSelectedOption(null);
@@ -18,10 +16,6 @@ const QuizQuestion = ({ question, onSolved, score }) => {
     setSelectedOption(option);
     setIsCorrect(option === question.answer);
     onSolved(option === question.answer);
-  };
-
-  const handleExplanationClick = () => {
-    setShowExplanation(true);
   };
 
   const handleScoreUpdate = () => {
@@ -113,22 +107,7 @@ const QuizQuestion = ({ question, onSolved, score }) => {
               )}
             </div>
           )}
-          {selectedOption === question.answer && !showExplanation && (
-            <div>
-              <a
-                href="#"
-                onClick={handleExplanationClick}
-                style={{
-                  color: "black",
-                  textAlign: "left",
-                  textDecoration: "none",
-                }}
-              >
-                ▼ Explanation
-              </a>
-            </div>
-          )}
-          {showExplanation && (
+          {isCorrect && (
             <div style={{ margin: "10px" }}>
               <h3
                 style={{
