@@ -8,6 +8,7 @@ export const UserContext = createContext();
 const App = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [finishResults, setFinishResults] = useState("");
   const handleStartQuiz = () => {
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
@@ -24,6 +25,20 @@ const App = () => {
     }
   }, []);
 
+  const onFinishQuiz = async (score) => {
+    const results = { username: name, email, score };
+    const response = await fetch("http://23.97.148.236/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(results),
+    });
+    if (response.ok) {
+      setFinishResults("Results are submitted!");
+    }
+  };
+
   const userContextValue = {
     name,
     setName,
@@ -31,13 +46,20 @@ const App = () => {
     setEmail,
   };
   return (
-    <UserContext.Provider value={userContextValue}>
-      <div className="App">
-        <UserInfo />
-        <StartForm onStartQuiz={handleStartQuiz} />
-        Quiz v.0.0.1
-      </div>
-    </UserContext.Provider>
+    <>
+      <UserContext.Provider value={userContextValue}>
+        <div className="App">
+          <UserInfo />
+          <StartForm
+            onStartQuiz={handleStartQuiz}
+            onFinishQuiz={onFinishQuiz}
+          />
+
+          <h2>{finishResults}</h2>
+        </div>
+      </UserContext.Provider>
+      <div className="footer">Quiz v.0.0.1</div>
+    </>
   );
 };
 
