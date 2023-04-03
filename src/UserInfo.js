@@ -5,16 +5,17 @@ const UserInfo = () => {
   const { name, email } = useContext(UserContext);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "10px",
-        marginBottom: "20px"
-      }}
-    >
-      {name && <div>Name: {name}</div>}
-      {email && <div>Email: {email}</div>}
+    <div className="topUserInfo">
+      {name && (
+        <div>
+          <b>Name:</b> {name}
+        </div>
+      )}
+      {email && (
+        <div>
+          <b>Email:</b> {email}
+        </div>
+      )}
     </div>
   );
 };
