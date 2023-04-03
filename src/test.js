@@ -8,7 +8,7 @@ export const data = [
   {
     _id: "642b562f0696bbc4db425800",
     username: "test4",
-    email: "text5@dxc.com",
+    email: "text4@dxc.com",
     score: 4,
   },
   {
@@ -19,7 +19,7 @@ export const data = [
   },
   {
     _id: "642b562f0696bbc4db425800",
-    username: "Vlad",
+    username: "Vladimir Sonkin",
     email: "Vlad@dxc.com",
     score: 6,
   },
@@ -37,7 +37,7 @@ export const data = [
   },
   {
     _id: "642b562f0696bbc4db425800",
-    username: "Vlad",
+    username: "Vladimir Sonkin",
     email: "Vlad@dxc.com",
     score: 15,
   },
