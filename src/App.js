@@ -27,7 +27,8 @@ const App = () => {
 
   const onFinishQuiz = async (score) => {
     const results = { username: name, email, score };
-    const response = await fetch("http://23.97.148.236/users", {
+    const serverUri = "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net";
+    const response = await fetch(serverUri + "/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
