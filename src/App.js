@@ -28,15 +28,20 @@ const App = () => {
   const onFinishQuiz = async (score) => {
     const results = { username: name, email, score };
     const serverUri = "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net";
-    const response = await fetch(serverUri + "/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(results),
-    });
-    if (response.ok) {
-      setFinishResults("Results are submitted!");
+    try {
+      const response = await fetch(serverUri + "/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://jquiz.vercel.app/",
+        },
+        body: JSON.stringify(results),
+      });
+      if (response.ok) {
+        setFinishResults("Results are submitted!");
+      }
+    } catch (err) {
+      setFinishResults("Rusults were not submitted: " + err);
     }
   };
 
