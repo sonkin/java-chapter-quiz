@@ -77,7 +77,11 @@ const StartForm = ({ onStartQuiz }) => {
             />
             <div style={{ color: "red" }}>{emailError}</div>
           </div>
-          <button className="button-style" onClick={handleStartQuiz}>
+          <button
+            className="button-style"
+            style={{ marginTop: "50px" }}
+            onClick={handleStartQuiz}
+          >
             Start Quiz
           </button>
         </div>
