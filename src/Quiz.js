@@ -2,21 +2,13 @@ import React, { useState } from "react";
 import QuizQuestion from "./QuizQuestion";
 
 const Quiz = ({ questions }) => {
-  const [
-    currentQuestionIndex,
-    setCurrentQuestionIndex
-  ] = useState(0);
-  const [solvedQuestions, setSolvedQuestions] = useState(
-    []
-  );
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [solvedQuestions, setSolvedQuestions] = useState([]);
   const [score, setScore] = useState(0);
 
   const handleQuestionSolved = (isCorrect) => {
     if (isCorrect) {
-      setSolvedQuestions([
-        ...solvedQuestions,
-        currentQuestionIndex
-      ]);
+      setSolvedQuestions([...solvedQuestions, currentQuestionIndex]);
       setScore(score + 1);
     } else {
       setScore(score - 1);
@@ -40,7 +32,7 @@ const Quiz = ({ questions }) => {
         style={{
           textAlign: "center",
           marginBottom: "10px",
-          fontWeight: "bold"
+          fontWeight: "bold",
         }}
       >
         Current score: {score}
@@ -51,11 +43,10 @@ const Quiz = ({ questions }) => {
             fontSize: "15pt",
             fontWeight: "bold",
             padding: "10px",
-            backgroundColor: "#eef"
+            backgroundColor: "#eef",
           }}
         >
-          Question {currentQuestionIndex + 1} of{" "}
-          {totalQuestions}
+          Question {currentQuestionIndex + 1} of {totalQuestions}
         </p>
       )}
       {currentQuestion && (
@@ -66,10 +57,7 @@ const Quiz = ({ questions }) => {
         />
       )}
       {solvedQuestions.includes(currentQuestionIndex) && (
-        <button
-          className="button-style"
-          onClick={handleNextClick}
-        >
+        <button className="button-style" onClick={handleNextClick}>
           {currentQuestionIndex === questions.length - 1
             ? "Finish Quiz"
             : "Next Question"}
@@ -80,8 +68,8 @@ const Quiz = ({ questions }) => {
           <h2>Final Score: {score}</h2>
           <p style={{ fontSize: "15pt" }}>
             You have answered all {totalQuestions}{" "}
-            {totalQuestions > 1 ? "questions" : "question"}.
-            Thank you for participation!
+            {totalQuestions > 1 ? "questions" : "question"}. Thank you for
+            participation!
           </p>
         </div>
       )}

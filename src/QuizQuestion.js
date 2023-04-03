@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 const QuizQuestion = ({ question, onSolved, score }) => {
-  const [selectedOption, setSelectedOption] = useState(
-    null
-  );
+  const [selectedOption, setSelectedOption] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
-  const [showExplanation, setShowExplanation] = useState(
-    false
-  );
-  const [showScoreUpdate, setShowScoreUpdate] = useState(
-    false
-  );
+  const [showExplanation, setShowExplanation] = useState(false);
+  const [showScoreUpdate, setShowScoreUpdate] = useState(false);
 
   useEffect(() => {
     setShowExplanation(false);
@@ -20,6 +14,7 @@ const QuizQuestion = ({ question, onSolved, score }) => {
   }, [question]);
 
   const handleOptionSelect = (option) => {
+    if (isCorrect) return;
     setSelectedOption(option);
     setIsCorrect(option === question.answer);
     onSolved(option === question.answer);
@@ -31,9 +26,6 @@ const QuizQuestion = ({ question, onSolved, score }) => {
 
   const handleScoreUpdate = () => {
     setShowScoreUpdate(true);
-    // setTimeout(() => {
-    //   setShowScoreUpdate(false);
-    // }, 3000);
   };
 
   return (
@@ -43,19 +35,12 @@ const QuizQuestion = ({ question, onSolved, score }) => {
           display: "flex",
           justifyContent: "flex-start",
           textAlign: "left",
-          margin: "20px",
-          fontSize: "15pt"
+          margin: "5px",
+          fontSize: "15pt",
         }}
       >
         {question.text}
       </div>
-      <p
-        style={{
-          fontSize: "10pt",
-          padding: "10px",
-          backgroundColor: "#eef"
-        }}
-      ></p>
       <form>
         {question.options.map((option) => (
           <div
@@ -63,15 +48,14 @@ const QuizQuestion = ({ question, onSolved, score }) => {
             style={{
               display: "flex",
               cursor: "pointer",
-              padding: "10px"
+              padding: "10px",
             }}
             onClick={() => {
               handleOptionSelect(option);
               handleScoreUpdate();
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor =
-                "#eef";
+              e.currentTarget.style.backgroundColor = "#eef";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "";
@@ -86,11 +70,7 @@ const QuizQuestion = ({ question, onSolved, score }) => {
               disabled={selectedOption !== null}
               style={{ marginRight: "10px" }}
             />
-            <span
-              style={{ marginLeft: 0, fontSize: "1.2rem" }}
-            >
-              {option}
-            </span>
+            <span style={{ marginLeft: 0, fontSize: "1.2rem" }}>{option}</span>
           </div>
         ))}
       </form>
@@ -98,9 +78,7 @@ const QuizQuestion = ({ question, onSolved, score }) => {
       {selectedOption && isCorrect !== null && (
         <div style={{ marginTop: "10px" }}>
           {isCorrect && (
-            <p
-              style={{ fontSize: "1.2rem", color: "green" }}
-            >
+            <p style={{ fontSize: "1.2rem", color: "green" }}>
               <span style={{ marginRight: "10px" }}>✓</span>
               Correct!
             </p>
@@ -117,7 +95,7 @@ const QuizQuestion = ({ question, onSolved, score }) => {
                 <p
                   style={{
                     fontSize: "1.2rem",
-                    color: "green"
+                    color: "green",
                   }}
                 >
                   Score increased! Current score: {score}
@@ -127,7 +105,7 @@ const QuizQuestion = ({ question, onSolved, score }) => {
                 <p
                   style={{
                     fontSize: "1.2rem",
-                    color: "red"
+                    color: "red",
                   }}
                 >
                   Score decreased! Current score: {score}
@@ -135,36 +113,33 @@ const QuizQuestion = ({ question, onSolved, score }) => {
               )}
             </div>
           )}
-          {selectedOption === question.answer &&
-            !showExplanation && (
-              <div>
-                <a
-                  href="#"
-                  onClick={handleExplanationClick}
-                  style={{
-                    color: "black",
-                    textAlign: "left",
-                    textDecoration: "none"
-                  }}
-                >
-                  ▼ Explanation
-                </a>
-              </div>
-            )}
+          {selectedOption === question.answer && !showExplanation && (
+            <div>
+              <a
+                href="#"
+                onClick={handleExplanationClick}
+                style={{
+                  color: "black",
+                  textAlign: "left",
+                  textDecoration: "none",
+                }}
+              >
+                ▼ Explanation
+              </a>
+            </div>
+          )}
           {showExplanation && (
             <div style={{ margin: "10px" }}>
               <h3
                 style={{
                   display: "flex",
                   textAlign: "left",
-                  marginTop: "30px"
+                  marginTop: "30px",
                 }}
               >
                 Explanation:
               </h3>
-              <p style={{ textAlign: "left" }}>
-                {question.explanation}
-              </p>
+              <p style={{ textAlign: "left" }}>{question.explanation}</p>
             </div>
           )}
         </div>
