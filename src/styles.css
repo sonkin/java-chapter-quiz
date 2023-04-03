@@ -1,0 +1,18 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.button-style {
+  margin: 50px;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #eef;
+}
+.button-style:hover {
+  background-color: #ccf;
+  cursor: pointer;
+}
