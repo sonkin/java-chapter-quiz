@@ -89,11 +89,11 @@ export const questions = [
   },
 
   {
-    text: "Which Map implementation maintains key-value pairs in sorted order?",
+    text: "Which Map implementation maintains keys in sorted order?",
     options: ["HashMap", "TreeMap", "LinkedHashMap", "HashSet"],
     answer: "TreeMap",
     explanation:
-      "TreeMap is a Map implementation that maintains key-value pairs in sorted order according to their natural order or a provided comparator. HashMap uses a hash table and does not guarantee order, LinkedHashMap maintains the order of elements, and HashSet is a Set implementation, not a Map implementation.",
+      "TreeMap is a Map implementation that maintains keys in sorted order according to their natural order or a provided comparator. HashMap uses a hash table and does not guarantee order, LinkedHashMap preserves the order of elements, and HashSet is a Set implementation, not a Map implementation.",
   },
 
   {

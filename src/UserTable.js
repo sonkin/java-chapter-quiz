@@ -73,8 +73,8 @@ const UserTable = ({ currentUserEmail }) => {
         </tbody>
       </table>
       <div style={{ marginTop: "30px", fontSize: "8pt" }}>
-        In case of the same score, the participants who got the result earlier
-        have a higher position. Attempts shows how many times you tried.
+        In case of the same score, the participant who got the result earlier
+        has a higher position. Attempts shows how many times you tried.
       </div>
     </div>
   );

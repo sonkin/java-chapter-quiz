@@ -69,9 +69,8 @@ const Quiz = ({ questions, onFinishQuiz }) => {
           <h2>Final Score: {score}</h2>
           <p style={{ fontSize: "15pt" }}>
             You have answered all {totalQuestions}{" "}
-            {totalQuestions > 1 ? "questions" : "question"}. <br/>
-            Thank you for
-            participation!
+            {totalQuestions > 1 ? "questions" : "question"}. <br />
+            Thank you for participation!
           </p>
         </div>
       )}

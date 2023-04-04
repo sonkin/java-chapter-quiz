@@ -25,3 +25,6 @@
   background-color: #ccf;
   cursor: pointer;
 }
+.startForm input {
+  width: 80%;
+}

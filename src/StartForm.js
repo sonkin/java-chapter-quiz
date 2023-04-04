@@ -49,7 +49,7 @@ const StartForm = ({ onStartQuiz, onFinishQuiz }) => {
   return (
     <div className="App">
       {!showQuiz && (
-        <div>
+        <div class="startForm">
           <h2>
             Topic 1: Collections <br />
             <br />

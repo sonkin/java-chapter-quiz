@@ -64,7 +64,11 @@ const QuizQuestion = ({ question, onSolved, score }) => {
               disabled={selectedOption !== null}
               style={{ marginRight: "10px" }}
             />
-            <span style={{ marginLeft: 0, fontSize: "1.2rem" }}>{option}</span>
+            <span
+              style={{ marginLeft: 0, fontSize: "1.2rem", textAlign: "left" }}
+            >
+              {option}
+            </span>
           </div>
         ))}
       </form>
