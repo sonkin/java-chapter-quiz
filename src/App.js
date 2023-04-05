@@ -3,10 +3,19 @@ import StartForm from "./StartForm";
 import { createContext, useEffect, useState } from "react";
 import UserInfo from "./UserInfo";
 import UserTable from "./UserTable";
+import {
+  createBrowserRouter,
+  Route,
+  Router,
+  RouterProvider,
+  Routes,
+  useParams,
+} from "react-router-dom";
 
 export const UserContext = createContext();
 
-const App = () => {
+const Main = () => {
+  const { path } = useParams();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [finishResults, setFinishResults] = useState(null);
@@ -63,5 +72,18 @@ const App = () => {
     </div>
   );
 };
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+  },
+  {
+    path: "/results",
+    element: <UserTable />,
+  },
+]);
 
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 export default App;
