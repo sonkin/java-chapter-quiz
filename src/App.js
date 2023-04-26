@@ -23,7 +23,7 @@ const Main = () => {
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
   };
-  const getServerUri = (quizId) => {
+  const getServerUri = () => {
     return SERVER + quizId;
   };
   useEffect(() => {
@@ -86,12 +86,12 @@ const router = createBrowserRouter([
     element: <Navigate to="/1" replace />,
   },
   {
-    path: "/results/:quizId",
-    element: <UserTableDirectURL />,
-  },
-  {
     path: "/:quizId",
     element: <Main />,
+  },
+  {
+    path: "/results/:quizId",
+    element: <UserTableDirectURL />,
   },
 ]);
 
