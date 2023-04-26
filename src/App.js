@@ -95,8 +95,8 @@ const router = createBrowserRouter([
 ]);
 
 const UserTableDirectURL = () => {
-  const { quizId } = useParams();
-  return <UserTable getServerUri={() => SERVER + quizId} />;
+  //const { quizId } = useParams();
+  return <UserTable getServerUri={() => SERVER + "1"} />;
 };
 
 const App = () => {
