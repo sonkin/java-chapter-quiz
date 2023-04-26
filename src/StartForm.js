@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "./App";
-import { questions } from "./questions";
+import { questionDB } from "./questionDB";
 import Quiz from "./Quiz";
 import "./styles.css"; // import your CSS file here
 
-const StartForm = ({ onStartQuiz, onFinishQuiz }) => {
+const StartForm = ({ onStartQuiz, onFinishQuiz, quizID }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -46,14 +46,17 @@ const StartForm = ({ onStartQuiz, onFinishQuiz }) => {
     setEmail(event.target.value);
   };
 
+  let questionData = questionDB[quizID];
+
   return (
     <div className="App">
       {!showQuiz && (
         <div class="startForm">
           <h2>
-            Topic 1: Collections <br />
+            {questionData.title}
             <br />
-            Quiz 1: Collections Hierarchy
+            <br />
+            {questionData.subtitle}
           </h2>
           <div style={{ padding: "10px" }}>
             <label htmlFor="name">Name: </label>
@@ -86,7 +89,12 @@ const StartForm = ({ onStartQuiz, onFinishQuiz }) => {
           </button>
         </div>
       )}
-      {showQuiz && <Quiz questions={questions} onFinishQuiz={onFinishQuiz} />}
+      {showQuiz && (
+        <Quiz
+          questions={questionDB[quizID].questions}
+          onFinishQuiz={onFinishQuiz}
+        />
+      )}
     </div>
   );
 };

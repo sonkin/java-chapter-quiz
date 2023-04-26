@@ -5,6 +5,7 @@ import UserInfo from "./UserInfo";
 import UserTable from "./UserTable";
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
   useParams,
 } from "react-router-dom";
@@ -12,13 +13,17 @@ import {
 export const UserContext = createContext();
 
 const Main = () => {
-  const { path } = useParams();
+  const { quizId } = useParams();
+  if (!quizId) quizId = 1;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [finishResults, setFinishResults] = useState(null);
   const handleStartQuiz = () => {
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
+  };
+  const getServerUri = () => {
+    return "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/" + quizId;
   };
   useEffect(() => {
     const storedName = localStorage.getItem("name");
@@ -34,9 +39,8 @@ const Main = () => {
 
   const onFinishQuiz = async (score) => {
     const results = { username: name, email, score };
-    const serverUri = "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net";
     try {
-      const response = await fetch(serverUri + "/users", {
+      const response = await fetch(getServerUri() + "/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,9 +66,15 @@ const Main = () => {
     <div className="App">
       <UserContext.Provider value={userContextValue}>
         <UserInfo />
-        <StartForm onStartQuiz={handleStartQuiz} onFinishQuiz={onFinishQuiz} />
+        <StartForm
+          quizID={quizId}
+          onStartQuiz={handleStartQuiz}
+          onFinishQuiz={onFinishQuiz}
+        />
         <div>{finishResults}</div>
-        {finishResults && <UserTable currentUserEmail={email} />}
+        {finishResults && (
+          <UserTable getServerUri={getServerUri} currentUserEmail={email} />
+        )}
       </UserContext.Provider>
     </div>
   );
@@ -72,6 +82,10 @@ const Main = () => {
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Navigate to="/1" replace />,
+  },
+  {
+    path: "/:quizId?",
     element: <Main />,
   },
   {

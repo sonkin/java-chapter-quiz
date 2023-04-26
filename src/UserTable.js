@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { data } from "./test";
 import "./UserTable.css";
 
-const UserTable = ({ currentUserEmail }) => {
+const UserTable = ({ currentUserEmail, getServerUri }) => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [currentUserPosition, setCurrentUserPosition] = useState(-1);
 
   useEffect(() => {
-    fetch("https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/users")
+    alert(getServerUri());
+    fetch(getServerUri() + "/users")
       // new Promise((resolve) => setTimeout(() => resolve(data), 100))
       .then((response) => response.json())
       .then((data) => {
