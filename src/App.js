@@ -5,10 +5,7 @@ import UserInfo from "./UserInfo";
 import UserTable from "./UserTable";
 import {
   createBrowserRouter,
-  Route,
-  Router,
   RouterProvider,
-  Routes,
   useParams,
 } from "react-router-dom";
 

@@ -53,7 +53,7 @@ const StartForm = ({ onStartQuiz, onFinishQuiz }) => {
           <h2>
             Topic 1: Collections <br />
             <br />
-            QUIZ 1: Collections Hierarchy
+            Quiz 1: Collections Hierarchy
           </h2>
           <div style={{ padding: "10px" }}>
             <label htmlFor="name">Name: </label>
