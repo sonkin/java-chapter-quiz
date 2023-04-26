@@ -2,6 +2,7 @@ import "./styles.css";
 import StartForm from "./StartForm";
 import { createContext, useEffect, useState } from "react";
 import UserInfo from "./UserInfo";
+import UserTableDirectURL from "./UserTableDirectURL";
 import UserTable from "./UserTable";
 import {
   createBrowserRouter,
@@ -10,7 +11,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-const SERVER = "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/";
+export const SERVER = "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/";
 export const UserContext = createContext();
 
 const Main = () => {
@@ -93,11 +94,6 @@ const router = createBrowserRouter([
     element: <Main />,
   },
 ]);
-
-const UserTableDirectURL = () => {
-  //const { quizId } = useParams();
-  return <UserTable getServerUri={() => SERVER + "1"} />;
-};
 
 const App = () => {
   return <RouterProvider router={router} />;
