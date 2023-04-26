@@ -10,6 +10,7 @@ import {
   useParams,
 } from "react-router-dom";
 
+const SERVER = "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/";
 export const UserContext = createContext();
 
 const Main = () => {
@@ -21,8 +22,8 @@ const Main = () => {
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
   };
-  const getServerUri = () => {
-    return "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/" + quizId;
+  const getServerUri = (quizId) => {
+    return SERVER + quizId;
   };
   useEffect(() => {
     const storedName = localStorage.getItem("name");
@@ -85,7 +86,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/:quizId/results",
-    element: <UserTable />,
+    element: (
+      <UserTable
+        getServerUri={() => {
+          const { quizId } = useParams();
+          return SERVER + quizId;
+        }}
+      />
+    ),
   },
   {
     path: "/:quizId",
