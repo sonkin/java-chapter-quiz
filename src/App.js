@@ -14,7 +14,6 @@ export const UserContext = createContext();
 
 const Main = () => {
   const { quizId } = useParams();
-  if (!quizId) quizId = 1;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [finishResults, setFinishResults] = useState(null);
@@ -85,11 +84,11 @@ const router = createBrowserRouter([
     element: <Navigate to="/1" replace />,
   },
   {
-    path: "/:quizId?",
+    path: "/:quizId",
     element: <Main />,
   },
   {
-    path: "/results",
+    path: "/:quizId/results",
     element: <UserTable />,
   },
 ]);

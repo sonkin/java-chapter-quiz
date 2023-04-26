@@ -176,7 +176,7 @@ export const questionDB = {
     subtitle: "Quiz 2. Search efficiency in Set and Map",
     questions: [
       {
-        text: "What object properties should be used in equal and hashCode?",
+        text: "What kind of object properties should be used in equal and hashCode?",
         options: ["State", "Identity", "Public", "Private"],
         answer: "Identity",
         explanation:
