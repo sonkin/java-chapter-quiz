@@ -8,6 +8,7 @@ const UserTable = ({ currentUserEmail, getServerUri }) => {
   const [currentUserPosition, setCurrentUserPosition] = useState(-1);
 
   useEffect(() => {
+    alert(getServerUri());
     fetch(getServerUri() + "/users")
       // new Promise((resolve) => setTimeout(() => resolve(data), 100))
       .then((response) => response.json())
