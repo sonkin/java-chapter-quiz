@@ -84,12 +84,12 @@ const router = createBrowserRouter([
     element: <Navigate to="/1" replace />,
   },
   {
-    path: "/:quizId",
-    element: <Main />,
-  },
-  {
     path: "/:quizId/results",
     element: <UserTable />,
+  },
+  {
+    path: "/:quizId",
+    element: <Main />,
   },
 ]);
 
