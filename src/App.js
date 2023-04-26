@@ -85,7 +85,7 @@ const router = createBrowserRouter([
     element: <Navigate to="/1" replace />,
   },
   {
-    path: "/:quizId/results",
+    path: "/results/:quizId",
     element: <UserTableDirectURL />,
   },
   {
