@@ -86,20 +86,18 @@ const router = createBrowserRouter([
   },
   {
     path: "/:quizId/results",
-    element: (
-      <UserTable
-        getServerUri={() => {
-          const { quizId } = useParams();
-          return SERVER + quizId;
-        }}
-      />
-    ),
+    element: <UserTableDirectURL />,
   },
   {
     path: "/:quizId",
     element: <Main />,
   },
 ]);
+
+const UserTableDirectURL = () => {
+  const { quizId } = useParams();
+  return <UserTable getServerUri={() => SERVER + quizId} />;
+};
 
 const App = () => {
   return <RouterProvider router={router} />;
