@@ -233,16 +233,16 @@ export const questionDB = {
           "If a calculated hash code is too large to fit into an int, casting it to an int will truncate the upper bits, allowing the resulting number to fit into an int.",
       },
       {
-        text: "What is the primary purpose of using a shift number when calculating a hash code?",
+        text: "What are collisions in a HashMap?",
         options: [
-          "To ensure the hash code is unique",
-          "To reduce the likelihood of collisions",
-          "To increase the range of possible hash codes",
-          "To improve the distribution of elements in the hash table",
+          "Duplicate keys",
+          "Same hash codes for different keys",
+          "Memory overflow",
+          "Invalid key-value pairs",
         ],
-        answer: "To reduce the likelihood of collisions",
+        answer: "Same hash codes for different keys",
         explanation:
-          "The primary purpose of using a shift number when calculating a hash code is to reduce the likelihood of collisions by mixing the bits of the hash codes of different properties.",
+          "Collisions in a hash table occur when two different keys have the same hash code, causing them to be placed in the same bucket. This situation requires additional handling to maintain the efficiency of hash table operations.",
       },
       {
         text: "What is the consequence of including state properties in the hash code calculation?",
