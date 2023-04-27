@@ -176,11 +176,169 @@ export const questionDB = {
     subtitle: "Quiz 2. Search efficiency in Set and Map",
     questions: [
       {
-        text: "What kind of object properties should be used in equal and hashCode?",
-        options: ["State", "Identity", "Public", "Private"],
-        answer: "Identity",
+        text: "What is the efficiency of the brute force search method?",
+        options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+        answer: "O(n)",
         explanation:
-          "Methods equals() and hashCode() should be based only on properties which are part of identity, i.e. will never change",
+          "The brute force search method has an efficiency of O(n), as it involves iterating over all elements in the collection",
+      },
+      {
+        text: "What is the primary requirement for performing a search by half division?",
+        options: [
+          "The collection must be sorted",
+          "The elements must implement the Comparable interface",
+          "The collection must contain unique elements",
+          "The search must be performed in a binary tree",
+        ],
+        answer: "The collection must be sorted",
+        explanation:
+          "To perform a search by half division, the collection must be sorted, which allows the algorithm to efficiently narrow down the search space",
+      },
+      {
+        text: "What does the load factor represent in a hash table?",
+        options: [
+          "The number of buckets",
+          "The number of elements",
+          "The percentage of empty buckets",
+          "The average number of elements per bucket",
+        ],
+        answer: "The average number of elements per bucket",
+        explanation:
+          "The load factor represents the average number of elements per bucket in a hash table. It is used to determine when rehashing should occur to maintain efficient searching.",
+      },
+      {
+        text: "What is the default load factor in Java?",
+        options: ["0.25", "0.5", "0.75", "1"],
+        answer: "0.75",
+        explanation:
+          "In Java, the default load factor is 0.75. This means that on average, every bucket has less than one element stored inside it, ensuring efficient searching.",
+      },
+      {
+        text: "Which prime numbers are commonly used as shift values when calculating a composite hash code?",
+        options: ["2 and 3", "5 and 7", "11 and 13", "17 and 31"],
+        answer: "17 and 31",
+        explanation:
+          "Prime numbers 17 and 31 are often used as shift values when calculating a composite hash code, as they help in mixing the bits of the hash codes of different properties.",
+      },
+      {
+        text: "What should be done if a calculated hash code is too large to fit into an int?",
+        options: [
+          "Split the hash code into multiple parts",
+          "Round the hash code to the nearest int",
+          "Cast the hash code to an int",
+          "Use a long instead of an int",
+        ],
+        answer: "Cast the hash code to an int",
+        explanation:
+          "If a calculated hash code is too large to fit into an int, casting it to an int will truncate the upper bits, allowing the resulting number to fit into an int.",
+      },
+      {
+        text: "What is the primary purpose of using a shift number when calculating a hash code?",
+        options: [
+          "To ensure the hash code is unique",
+          "To reduce the likelihood of collisions",
+          "To increase the range of possible hash codes",
+          "To improve the distribution of elements in the hash table",
+        ],
+        answer: "To reduce the likelihood of collisions",
+        explanation:
+          "The primary purpose of using a shift number when calculating a hash code is to reduce the likelihood of collisions by mixing the bits of the hash codes of different properties.",
+      },
+      {
+        text: "What is the consequence of including state properties in the hash code calculation?",
+        options: [
+          "The hash code will be less unique",
+          "The object may not be equal to itself if its state changes",
+          "The hash code will be more efficient",
+          "The object will have a higher likelihood of collisions",
+        ],
+        answer: "The object may not be equal to itself if its state changes",
+        explanation:
+          "If state properties are included in the hash code calculation, the object may not be equal to itself if its state changes, leading to difficulties in finding the object in a collection.",
+      },
+      {
+        text: "What type of properties should not be included in equals and hashCode?",
+        options: [
+          "State properties",
+          "Identity properties",
+          "Static properties",
+          "Transient properties",
+        ],
+        answer: "State properties",
+        explanation:
+          "State properties should not be included in equals() and hashCode() calculations, as their values may change over time, leading to inconsistencies and difficulties in finding the object in a collection.",
+      },
+      {
+        text: "Which of the following is not part of the identity of the Person?",
+        options: ["First name", "Last name", "Date of birth", "Position"],
+        answer: "Position",
+        explanation:
+          "Position is not part of the identity of the Person, as it represents the state of the object and can change over time. Identity properties are those that remain constant throughout the life of an object.",
+      },
+      {
+        text: "What happens when a hash code is cast to an int?",
+        options: [
+          "The hash code is rounded",
+          "The upper bits are cut",
+          "The lower bits are cut",
+          "The hash code is split",
+        ],
+        answer: "The upper bits are cut",
+        explanation:
+          "When a hash code is cast to an int, the upper bits are cut, leaving only the lower bits. This allows the resulting number to fit into an int.",
+      },
+      {
+        text: "What is the purpose of a prime shift number in calculating a hash code?",
+        options: [
+          "For mixing the bits",
+          "For increasing the size of the hash code",
+          "For decreasing the size of the hash code",
+          "For simplifying the calculation",
+        ],
+        answer: "For mixing the bits",
+        explanation:
+          "A prime shift number, such as 17 or 31, is used for mixing the bits of the hash codes of different properties, which helps in generating a more unique and evenly distributed hash code.",
+      },
+      {
+        text: "How is the hash code mapped to the bucket number?",
+        options: [
+          "By multiplying the hash code with the bucket size",
+          "By dividing the hash code by the bucket size",
+          "By using the remainder of the hash code divided by the bucket size",
+          "By adding the hash code and the bucket size",
+        ],
+        answer:
+          "By using the remainder of the hash code divided by the bucket size",
+        explanation:
+          "The hash code is mapped to the bucket number by taking the remainder when the hash code is divided by the total number of buckets. This operation ensures that the resulting bucket number is within the bounds of the hash table and helps in distributing the elements across different buckets.",
+      },
+      {
+        text: "What is the time complexity for adding, removing, and finding elements in HashSet and LinkedHashSet?",
+        options: ["O(1)", "O(log N)", "O(N)", "O(N log N)"],
+        answer: "O(1)",
+        explanation:
+          "HashSet and LinkedHashSet have a very high efficiency for adding, removing, and finding elements, with a time complexity of O(1).",
+      },
+      {
+        text: "What data structure does TreeSet use?",
+        options: ["Array", "Hash table", "Red-black tree", "Binary tree"],
+        answer: "Red-black tree",
+        explanation:
+          "TreeSet uses a red-black tree, which is a type of binary self-balancing tree, allowing for efficient operations.",
+      },
+      {
+        text: "What is the time complexity for operations in TreeMap?",
+        options: ["O(1)", "O(log N)", "O(N)", "O(N log N)"],
+        answer: "O(log N)",
+        explanation:
+          "TreeMap keeps keys in a binary self-balancing tree, and its time complexity for operations is O(log N).",
+      },
+      {
+        text: "Which Java Map implementation provides efficient operations in a multithreaded environment?",
+        options: ["HashMap", "LinkedHashMap", "TreeMap", "ConcurrentHashMap"],
+        answer: "ConcurrentHashMap",
+        explanation:
+          "ConcurrentHashMap is designed to provide efficient operations in a multithreaded environment. While its time complexity may vary depending on the level of concurrency, it is generally quite efficient.",
       },
     ],
   },
