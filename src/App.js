@@ -11,7 +11,8 @@ import {
   useParams,
 } from "react-router-dom";
 
-export const SERVER = "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/";
+export const SERVER = "https://jtutor.app/";
+//export const SERVER = "https://jquiz-athjd4btb4c0fadd.z01.azurefd.net/";
 export const UserContext = createContext();
 
 const Main = () => {
