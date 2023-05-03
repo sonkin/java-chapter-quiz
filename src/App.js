@@ -46,7 +46,6 @@ const Main = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          //"Access-Control-Allow-Origin": "https://jquiz.vercel.app/",
         },
         body: JSON.stringify(results),
       });

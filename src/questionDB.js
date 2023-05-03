@@ -342,4 +342,17 @@ export const questionDB = {
       },
     ],
   },
+  3: {
+    title: "Topic 2. Multithreaded Collections",
+    subtitle: "Quiz 1. Test",
+    questions: [
+      {
+        text: "What is the efficiency of the brute force search method?",
+        options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+        answer: "O(n)",
+        explanation:
+          "The brute force search method has an efficiency of O(n), as it involves iterating over all elements in the collection",
+      },
+    ],
+  },
 };
