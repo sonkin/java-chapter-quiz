@@ -343,15 +343,204 @@ export const questionDB = {
     ],
   },
   3: {
-    title: "Topic 2. Multithreaded Collections",
-    subtitle: "Quiz 1. Test",
+    title: "Topic 2. Collections in Multithreaded environment",
+    subtitle: "Quiz 1. ArrayList Concurrency",
     questions: [
       {
-        text: "What is the efficiency of the brute force search method?",
-        options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
-        answer: "O(n)",
+        text: "What issues may arise when working with ArrayList in a multi-threaded environment?",
+        options: [
+          "Lost updates",
+          "ConcurrentModificationExceptions",
+          "Slow performance",
+          "All of the above",
+        ],
+        answer: "All of the above",
         explanation:
-          "The brute force search method has an efficiency of O(n), as it involves iterating over all elements in the collection",
+          "When working with ArrayList in a multi-threaded environment, you may experience lost updates, ConcurrentModificationExceptions, and slow performance. These issues occur because ArrayList is not thread-safe, and multiple threads may access and modify the list simultaneously, leading to data corruption, unexpected exceptions, and degraded performance.",
+      },
+      {
+        text: "Which method can be used to create a thread-safe list?",
+        options: [
+          "synchronizedList()",
+          "synchronizedBlock()",
+          "synchronizedQueue()",
+          "synchronizedArrayList()",
+        ],
+        answer: "synchronizedList()",
+        explanation:
+          "synchronizedList() is a method provided by the Collections class to create a thread-safe list. It takes an existing list as a parameter and wraps it in a synchronized wrapper, providing basic synchronization for individual operations on the list. This method helps in resolving lost update issues in a multi-threaded environment.",
+      },
+      {
+        text: "What is the main idea behind CopyOnWriteArrayList?",
+        options: [
+          "Creating a copy on every update",
+          "Locking the entire list",
+          "Using atomic operations",
+          "Using volatile variables",
+        ],
+        answer: "Creating a copy on every update",
+        explanation:
+          "The main idea behind CopyOnWriteArrayList is to create a copy of the list every time an update is made (add or remove elements). This ensures that the list remains thread-safe as iterating threads will always work on the original list, which remains unchanged during the iteration process. However, this approach can be inefficient in terms of performance, especially when there are frequent updates.",
+      },
+      {
+        text: "What is the Lost Update issue?",
+        options: [
+          "Multiple threads updating the same element",
+          "Missing elements in a list",
+          "Overwriting data by other threads",
+          "None of the above",
+        ],
+        answer: "Overwriting data by other threads",
+        explanation:
+          "The Lost Update issue occurs when two or more threads read the same data from a list and then update it simultaneously. As a result, one thread's update may overwrite the other thread's update, causing data loss. This issue is common when working with non-thread-safe data structures like ArrayList in a multi-threaded environment.",
+      },
+      {
+        text: "Which of the following can help prevent ConcurrentModificationException?",
+        options: [
+          "synchronizedList()",
+          "synchronized block",
+          "CopyOnWriteArrayList",
+          "Both synchronized block and CopyOnWriteArrayList",
+        ],
+        answer: "Both synchronized block and CopyOnWriteArrayList",
+        explanation:
+          "Both synchronized block and CopyOnWriteArrayList can help prevent ConcurrentModificationException. A synchronized block can be used to lock the list during compound operations or iterations, ensuring that no other threads can modify the list during this time. CopyOnWriteArrayList, on the other hand, creates a copy of the list every time an update is made, ensuring that iterating threads always work on the original list.",
+      },
+      {
+        text: "What is the Lost Update issue in a multi-threaded environment?",
+        options: [
+          "Multiple threads reading outdated data",
+          "Multiple threads attempting to update the same data simultaneously",
+          "Multiple threads causing a deadlock",
+          "Multiple threads causing a race condition",
+        ],
+        answer:
+          "Multiple threads attempting to update the same data simultaneously",
+        explanation:
+          "The Lost Update issue occurs when multiple threads attempt to update the same data simultaneously, leading to one or more updates being overwritten by another thread's update. This can cause data inconsistency and unpredictable results, as the final state of the data might not reflect all the intended updates made by the threads.",
+      },
+      {
+        text: "What is the main disadvantage of using CopyOnWriteArrayList?",
+        options: [
+          "Poor performance for reading data",
+          "Poor performance for updating data",
+          "Inability to prevent Lost Update issue",
+          "Inability to prevent ConcurrentModificationException",
+        ],
+        answer: "Poor performance for updating data",
+        explanation:
+          "CopyOnWriteArrayList has poor performance for updating data because it creates a new copy of the list on each update. This can be inefficient and slow, especially when there are frequent updates or a large number of updating threads. However, it has high performance for reading data and can prevent both Lost Update issue and ConcurrentModificationException.",
+      },
+      {
+        text: "Which of the following options can prevent ConcurrentModificationException?",
+        options: [
+          "Collections.synchronizedList()",
+          "Synchronized block",
+          "CopyOnWriteArrayList",
+          "Both Synchronized block and CopyOnWriteArrayList",
+        ],
+        answer: "Both Synchronized block and CopyOnWriteArrayList",
+        explanation:
+          "Both synchronized block and CopyOnWriteArrayList can prevent ConcurrentModificationException. Collections.synchronizedList() provides basic synchronization for individual operations on the list but does not provide synchronization for compound operations or iterations, which can still lead to ConcurrentModificationException. Synchronized block can be used to ensure that only one thread can access the list during compound operations or iterations, preventing ConcurrentModificationException. CopyOnWriteArrayList creates a new copy of the list on each update, ensuring that updates and iterations are isolated from each other, preventing ConcurrentModificationException.",
+      },
+      {
+        text: "Which Java collection implementation is best suited for cases with frequent reads and rare updates?",
+        options: [
+          "ArrayList",
+          "LinkedList",
+          "CopyOnWriteArrayList",
+          "Collections.synchronizedList()",
+        ],
+        answer: "CopyOnWriteArrayList",
+        explanation:
+          "CopyOnWriteArrayList is best suited for cases with frequent reads and rare updates. It has high performance for reading data, as it does not require any synchronization or locking. However, it has poor performance for updating data, as it creates a new copy of the list on each update. This is not a problem when updates are rare. In contrast, ArrayList, LinkedList, and Collections.synchronizedList() do not provide the same level of performance and safety for frequent reads as CopyOnWriteArrayList. ArrayList and LinkedList are not thread-safe and can lead to data inconsistency or exceptions in multi-threaded environments, while Collections.synchronizedList() requires synchronization for every operation, which can reduce performance, especially for read-heavy workloads.",
+      },
+      {
+        text: "Which method should you use to safely remove an element while iterating through a list?",
+        options: [
+          "List.remove()",
+          "Iterator.remove()",
+          "List.removeAll()",
+          "None of the above",
+        ],
+        answer: "Iterator.remove()",
+        explanation:
+          "To safely remove an element while iterating through a list, you should use Iterator.remove(). This method is specifically designed to allow safe removal of elements during traversal without causing ConcurrentModificationException.",
+      },
+      {
+        text: "What is the primary purpose of ConcurrentModificationException?",
+        options: [
+          "To improve performance",
+          "To prevent data corruption",
+          "To ensure thread safety",
+          "To enforce coding standards",
+        ],
+        answer: "To prevent data corruption",
+        explanation:
+          "The primary purpose of ConcurrentModificationException is to prevent data corruption. It is thrown when an iterator detects that the underlying collection has been modified while it was iterating. This exception serves as a warning mechanism to indicate that the program is behaving incorrectly and may lead to unpredictable results.",
+      },
+      {
+        text: "Why does Collections.synchronizedList() not prevent ConcurrentModificationException?",
+        options: [
+          "It is not designed for multi-threading",
+          "It only provides basic synchronization for individual operations",
+          "It doesn't support iterator operations",
+          "It is only for read-heavy workloads",
+        ],
+        answer:
+          "It only provides basic synchronization for individual operations",
+        explanation:
+          "Collections.synchronizedList() does not prevent ConcurrentModificationException because it only provides basic synchronization for individual operations on the list. It does not provide synchronization for compound operations or iterations, which can still result in ConcurrentModificationException when one thread is iterating over the list and another thread is modifying the list simultaneously.",
+      },
+      {
+        text: "Which method provides the best performance when synchronizing ArrayList in a multi-threaded environment?",
+        options: [
+          "ArrayList",
+          "Collections.synchronizedList()",
+          "Synchronized block",
+          "CopyOnWriteArrayList",
+        ],
+        answer: "Collections.synchronizedList()",
+        explanation:
+          "Collections.synchronizedList() provides the best performance when synchronizing ArrayList in a multi-threaded environment. It wraps the ArrayList to make it thread-safe and ensures better performance than other methods, such as synchronized blocks.",
+      },
+      {
+        text: "When should you use a synchronized block over Collections.synchronizedList()?",
+        options: [
+          "When you require fine-grained control over synchronization",
+          "When working with read-heavy workloads",
+          "When using an iterator",
+          "All of the above",
+        ],
+        answer: "When you require fine-grained control over synchronization",
+        explanation:
+          "You should use a synchronized block over Collections.synchronizedList() when you require fine-grained control over synchronization. A synchronized block allows you to explicitly control which parts of the code are synchronized, providing more flexibility and potentially better performance than a synchronized collection.",
+      },
+
+      {
+        text: "How can you avoid ConcurrentModificationException while using synchronizedList()?",
+        options: [
+          "By using a synchronized block for compound operations or iterations",
+          "By creating a copy of the list before iterating over it",
+          "By using a CopyOnWriteArrayList",
+          "Both a) and b)",
+        ],
+        answer: "Both a) and b)",
+        explanation:
+          "To avoid ConcurrentModificationException while using synchronizedList(), you need to either use a synchronized block for compound operations or iterations or create a copy of the list before iterating over it.",
+      },
+
+      {
+        text: "Which of these approaches provides good efficiency for both reading and updating in multithreaded environment?",
+        options: [
+          "Collections.synchronizedList()",
+          "Synchronized block",
+          "CopyOnWriteArrayList",
+          "ConcurrentHashMap",
+        ],
+        answer: "Collections.synchronizedList()",
+        explanation:
+          "Collections.synchronizedList() provides high efficiency for both reading and updating operations by synchronizing access for all operations. However, it requires manual synchronization to prevent ConcurrentModificationException.",
       },
     ],
   },
