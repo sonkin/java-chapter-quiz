@@ -544,4 +544,331 @@ export const questionDB = {
       },
     ],
   },
+  4: {
+    title: "Topic 2. Collections in Multithreaded environment",
+    subtitle: "Quiz 2. Queues and Deques",
+
+    questions: [
+      {
+        text: "Which are the two groups of operations available for all queues?",
+        options: [
+          "Operations that throw exceptions and operations that return special values",
+          "Blocking operations and non-blocking operations",
+          "Adding to the beginning and adding to the end of the queue",
+          "Synchronous operations and asynchronous operations",
+        ],
+        answer:
+          "Operations that throw exceptions and operations that return special values",
+        explanation:
+          "Queues provide operations that either throw exceptions (such as add and remove) or return special values (such as offer and poll) based on the success or failure of the operation.",
+      },
+      {
+        text: "Which method can throw an IllegalStateException if the queue is overfull?",
+        options: ["add", "offer", "remove", "poll"],
+        answer: "add",
+        explanation:
+          "The add method can throw an IllegalStateException if the queue is already at its maximum capacity and cannot accommodate additional elements.",
+      },
+      {
+        text: "What does the offer method return if the element cannot be added to the queue?",
+        options: ["true", "false", "null", "IllegalArgumentException"],
+        answer: "false",
+        explanation:
+          "The offer method returns false if the element cannot be added to the queue, typically due to the queue being full.",
+      },
+      {
+        text: "Which method allows retrieving the next element from the queue without removing it?",
+        options: ["add", "remove", "element", "peek"],
+        answer: "peek",
+        explanation:
+          "The peek method allows retrieving the next element from the queue without removing it. It is useful for inspecting the element that will be next in line for removal.",
+      },
+      {
+        text: "Which interface is used for producer/consumer threads interaction?",
+        options: [
+          "BlockingQueue",
+          "Deque",
+          "PriorityQueue",
+          "SynchronousQueue",
+        ],
+        answer: "BlockingQueue",
+        explanation:
+          "The BlockingQueue interface extends the Queue interface and provides additional methods for blocking operations, making it suitable for thread synchronization and communication.",
+      },
+      {
+        text: "Which implementation of BlockingQueue is always bounded?",
+        options: [
+          "ArrayBlockingQueue",
+          "LinkedBlockingQueue",
+          "PriorityBlockingQueue",
+          "SynchronousQueue",
+        ],
+        answer: "ArrayBlockingQueue",
+        explanation:
+          "The ArrayBlockingQueue implementation of BlockingQueue is based on an array with a fixed capacity. It blocks the calling thread if the queue is full until space becomes available for adding elements.",
+      },
+      {
+        text: "Which data structure is internally used by PriorityQueue to retrieve the element with maximal priority?",
+        options: ["Array", "Linked List", "Binary Heap", "Red-Black Tree"],
+        answer: "Binary Heap",
+        explanation:
+          "PriorityQueue internally uses a binary heap data structure to maintain the order of elements. It is implemented as a dynamically resizable array-based heap structure, where elements are added or removed while preserving the heap property.",
+      },
+      {
+        text: "Which method is used to insert an element into a BlockingQueue, and blocks the calling thread until space becomes available?",
+        options: ["put", "offer", "add", "enqueue"],
+        answer: "put",
+        explanation:
+          "The put method is used to insert an element into a BlockingQueue. If the queue is already full, it blocks the calling thread until space becomes available to accommodate the new element.",
+      },
+      {
+        text: "Which operation of PriorityQueue allows retrieving the element with the highest priority without removing it?",
+        options: ["add", "remove", "element", "peek"],
+        answer: "peek",
+        explanation:
+          "The peek method of PriorityQueue allows retrieving the element with the highest priority without removing it from the queue.",
+      },
+      {
+        text: "Which operations of PriorityQueue require elements to implement the Comparable interface or provide a custom Comparator?",
+        options: ["add", "remove", "element", "all of the above"],
+        answer: "all of the above",
+        explanation:
+          "All operations of PriorityQueue, including add, remove, and element, require elements to implement the Comparable interface or provide a custom Comparator. This is necessary to establish the priority order of elements in the queue.",
+      },
+      {
+        text: "Which subinterface of Queue allows adding and removing elements from both ends, making it a double-ended queue?",
+        options: [
+          "ArrayBlockingQueue",
+          "LinkedBlockingQueue",
+          "PriorityQueue",
+          "Deque",
+        ],
+        answer: "Deque",
+        explanation:
+          "The Deque (double-ended queue) implementation of Queue allows adding and removing elements from both ends. It provides flexibility in queue operations by supporting operations at the front and back of the queue.",
+      },
+      {
+        text: "Which implementation of a queue uses non-blocking algorithms for thread safety?",
+        options: [
+          "ConcurrentLinkedQueue",
+          "ArrayBlockingQueue",
+          "LinkedBlockingQueue",
+          "PriorityQueue",
+        ],
+        answer: "ConcurrentLinkedQueue",
+        explanation:
+          "The ConcurrentLinkedQueue implementation of a queue is specifically designed for multi-threaded environments. It utilizes non-blocking algorithms and provides thread-safe operations, allowing concurrent access and modification by multiple threads.",
+      },
+      {
+        text: "Which implementation of a queue is based on a circular array and automatically expands when the capacity is reached?",
+        options: [
+          "ArrayBlockingQueue",
+          "LinkedBlockingQueue",
+          "SynchronousQueue",
+          "ArrayDeque",
+        ],
+        answer: "ArrayDeque",
+        explanation:
+          "The ArrayDeque implementation of a queue is based on a circular array. It automatically expands the underlying array when the capacity is reached, allowing the queue to accommodate more elements efficiently.",
+      },
+      {
+        text: "Which implementation of a queue provides direct element handoff between threads and has a higher performance than SynchronousQueue?",
+        options: [
+          "TransferQueue",
+          "DirectQueue",
+          "LinkedBlockingQueue",
+          "ConcurrentLinkedQueue",
+        ],
+        answer: "TransferQueue",
+        explanation:
+          "The TransferQueue implementation of a queue provides direct element handoff between threads. It offers higher performance compared to SynchronousQueue in scenarios where threads need to transfer elements without blocking.",
+      },
+      {
+        text: "Which implementation of a queue is commonly used for task and event handling, as well as caching scenarios, but does not support blocking methods?",
+        options: [
+          "ConcurrentLinkedQueue",
+          "SynchronousQueue",
+          "DelayQueue",
+          "ArrayBlockingQueue",
+        ],
+        answer: "ConcurrentLinkedQueue",
+        explanation:
+          "The ConcurrentLinkedQueue implementation of a queue is commonly used for task and event handling, as well as caching scenarios. It supports concurrent access and modification by multiple threads but does not provide blocking methods.",
+      },
+      {
+        text: "Which implementation of a queue is based on a circular array?",
+        options: [
+          "LinkedBlockingQueue",
+          "ConcurrentLinkedQueue",
+          "ArrayDeque",
+          "PriorityQueue",
+        ],
+        answer: "ArrayDeque",
+        explanation:
+          "The ArrayDeque implementation of a queue is based on a circular array. It allows adding and removing elements from both ends efficiently, making it suitable for double-ended queue operations.",
+      },
+      {
+        text: "Which implementation of a queue requires elements to implement the Comparable interface or provide a custom Comparator for ordering?",
+        options: [
+          "SynchronousQueue",
+          "PriorityBlockingQueue",
+          "ConcurrentLinkedQueue",
+          "LinkedBlockingQueue",
+        ],
+        answer: "PriorityBlockingQueue",
+        explanation:
+          "The PriorityBlockingQueue implementation of a queue requires elements to implement the Comparable interface or provide a custom Comparator for ordering. This allows elements to be arranged based on their priority.",
+      },
+      {
+        text: "Which implementation of a queue is recommended for high-concurrency scenarios when thread safety is required?",
+        options: [
+          "ArrayBlockingQueue",
+          "LinkedBlockingQueue",
+          "ConcurrentLinkedQueue",
+          "SynchronousQueue",
+        ],
+        answer: "ConcurrentLinkedQueue",
+        explanation:
+          "The ConcurrentLinkedQueue implementation of a queue is recommended for high-concurrency scenarios where thread safety is required. It provides efficient and thread-safe operations for concurrent access and modification.",
+      },
+      {
+        text: "Which bounded implementation of a queue is recommended when low to moderate contention is expected in a multi-threaded environment?",
+        options: [
+          "ArrayBlockingQueue",
+          "LinkedBlockingQueue",
+          "ConcurrentLinkedQueue",
+          "SynchronousQueue",
+        ],
+        answer: "ArrayBlockingQueue",
+        explanation:
+          "The ArrayBlockingQueue implementation of a queue is recommended when low to moderate contention is expected in a multi-threaded environment. It provides thread-safe operations with blocking functionality.",
+      },
+      {
+        text: "What happens when the capacity of an ArrayDeque is exceeded?",
+        options: [
+          "The program will terminate with an exception",
+          "It will automatically expand, creating a larger circular array",
+          "It will delete the oldest elements to make room for new ones",
+          "It will refuse to add more elements",
+        ],
+        answer:
+          "It will automatically expand, creating a larger circular array",
+        explanation:
+          "When the capacity of an ArrayDeque is exceeded, it will automatically expand by creating a larger circular array. This allows the deque to accommodate additional elements without losing existing elements.",
+      },
+      {
+        text: "What does the tryTransfer method do in a TransferQueue?",
+        options: [
+          "It waits indefinitely until the transfer is successful",
+          "It transfers an element immediately and returns true if a consumer is waiting for the element",
+          "It transfers an element immediately regardless of whether a consumer is waiting or not",
+          "It automatically creates a new thread to handle the transfer",
+        ],
+        answer:
+          "It transfers an element immediately and returns true if a consumer is waiting for the element",
+        explanation:
+          "The tryTransfer method in a TransferQueue transfers an element immediately if a consumer thread is waiting for the element. It returns true to indicate a successful transfer, and false if no consumer is currently waiting.",
+      },
+      {
+        text: "Which blocking Queue is recommended for high contention scenarios (i.e., when there are many threads accessing the queue)?",
+        options: [
+          "ArrayBlockingQueue",
+          "ConcurrentLinkedQueue",
+          "LinkedList",
+          "LinkedBlockingQueue",
+        ],
+        answer: "LinkedBlockingQueue",
+        explanation:
+          "The LinkedBlockingQueue implementation of a queue is recommended for high contention scenarios. It provides good performance and scalability when multiple threads are concurrently accessing the queue.",
+      },
+      {
+        text: "What is the time complexity for most queue operations in Java?",
+        options: ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+        answer: "O(1)",
+        explanation:
+          "Most queue operations in Java have a time complexity of O(1), which means they can be performed in constant time regardless of the size of the queue. This makes queue operations efficient and suitable for various applications.",
+      },
+      {
+        text: "What happens when an element is transferred using the TransferQueue's transfer method?",
+        options: [
+          "The element is immediately sent to the receiving thread",
+          "The method is blocked until the receiving thread acknowledges receipt",
+          "The method is blocked until there is space in the queue",
+          "The method is blocked until the queue is empty",
+        ],
+        answer:
+          "The method is blocked until the receiving thread acknowledges receipt",
+        explanation:
+          "When an element is transferred using the transfer method of TransferQueue, the method is blocked until the receiving thread acknowledges the receipt of the transferred element. This ensures synchronization between the transferring and receiving threads.",
+      },
+      {
+        text: "Which Queue implementation should be used when thread safety is needed, but blocking functionality is not?",
+        options: [
+          "LinkedList",
+          "PriorityBlockingQueue",
+          "ConcurrentLinkedQueue",
+          "ArrayDeque",
+        ],
+        answer: "ConcurrentLinkedQueue",
+        explanation:
+          "The ConcurrentLinkedQueue implementation of a queue should be used when thread safety is needed but blocking functionality is not required. It provides thread-safe operations for concurrent access without blocking.",
+      },
+      {
+        text: "In a circular array implementation of ArrayDeque, what happens when you try to add an element beyond its current capacity?",
+        options: [
+          "An exception is thrown",
+          "It loops back to the beginning of the array",
+          "The array size is doubled",
+          "The oldest element is removed",
+        ],
+        answer: "The array size is doubled",
+        explanation:
+          "In a circular array implementation of ArrayDeque, when you try to add an element beyond its current capacity, the array size is doubled. This dynamic resizing allows the deque to accommodate more elements efficiently.",
+      },
+      {
+        text: "What is the benefit of using a heap instead of a binary tree for implementing PriorityQueue in Java?",
+        options: [
+          "Efficient element insertion and removal based on priority.",
+          "Memory efficiency and compact storage.",
+          "Maintaining the order of elements based on the first-in-first-out (FIFO) policy.",
+          "All of the above.",
+        ],
+        answer: "Memory efficiency and compact storage.",
+        explanation:
+          "The benefit of using a heap instead of a binary tree for implementing PriorityQueue in Java is memory efficiency and compact storage. A heap-based implementation allows efficient insertion and removal of elements based on priority while maintaining a balanced heap structure.",
+      },
+      {
+        text: "What advantage does a circular array offer over a regular array for implementing ArrayDeque?",
+        options: [
+          "Faster element access due to a contiguous memory layout.",
+          "Improved time efficiency for insertions and removals at both ends.",
+          "Dynamic resizing of the underlying array.",
+          "Blocking methods support.",
+        ],
+        answer:
+          "Improved time efficiency for insertions and removals at both ends.",
+        explanation:
+          "A circular array offers improved time efficiency for insertions and removals at both ends compared to a regular array. It eliminates the need for shifting elements during insertion and removal, resulting in faster operations.",
+      },
+      {
+        text: "How does a circular array optimize memory usage for ArrayDeque?",
+        options: [
+          "It enables dynamic resizing of the underlying array.",
+          "It allows for a contiguous memory layout.",
+          "It reduce the need for storing empty gaps between elements.",
+          "It supports efficient random access to elements.",
+        ],
+        answer: "It reduce the need for storing empty gaps between elements.",
+        explanation:
+          "A circular array optimizes memory usage for ArrayDeque by eliminating the need for storing empty gaps between elements. The circular structure allows elements to be stored contiguously, reducing memory wastage.",
+      },
+      {
+        text: "What is the time complexity for insertions and removals at both ends of an ArrayDeque implemented using a circular array?",
+        options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+        answer: "O(1)",
+        explanation:
+          "Insertions and removals at both ends of an ArrayDeque implemented using a circular array have a time complexity of O(1), which means they can be performed in constant time. This makes ArrayDeque efficient for double-ended queue operations.",
+      },
+    ],
+  },
 };
