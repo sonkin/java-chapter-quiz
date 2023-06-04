@@ -871,4 +871,328 @@ export const questionDB = {
       },
     ],
   },
+  4: {
+    title: "Topic 3. Asynchronous programming",
+    subtitle: "Quiz 1. Asynchronous programming and Completable Future basics",
+    questions: [
+      {
+        text: "What is the major feature of asynchronous programming?",
+        options: [
+          "Simultaneous execution of multiple tasks.",
+          "Possibility to execute one task after another in a sequence.",
+          "Possibility to run tasks independently in a non-blocking manner.",
+          "Possibility to split a task into smaller units for rapid execution.",
+        ],
+        answer:
+          "Possibility to run tasks independently in a non-blocking manner.",
+        explanation:
+          "Asynchronous programming is characterized by its ability to run tasks independently and in a non-blocking manner. This means that the execution of certain tasks does not need to wait for the completion of others, and they can run concurrently. This is especially useful in scenarios where certain tasks may take an extended time to complete (such as network requests or file operations). This way, the program can continue executing other tasks instead of waiting, thereby optimizing the utilization of resources and improving the overall efficiency of the program. The independent and concurrent nature of tasks in asynchronous programming sets it apart from synchronous programming, where tasks are executed in a sequence, one after another.",
+      },
+      {
+        text: "Which type of I/O operation is typically associated with blocking technologies like JDBC?",
+        options: [
+          "Non-blocking I/O",
+          "Synchronous I/O",
+          "Asynchronous I/O",
+          "Reactive I/O",
+        ],
+        answer: "Synchronous I/O",
+        explanation:
+          "Blocking technologies like JDBC often rely on synchronous I/O operations. In synchronous I/O, the thread executing the operation is blocked and waits for the operation to complete before proceeding to the next line of code, leading to potential inefficiencies and resource underutilization.",
+      },
+      {
+        text: "What are some of the issues commonly associated with blocking technologies like JDBC?",
+        options: [
+          "Incomplete and outdated API",
+          "Increased risk of deadlocks and livelocks",
+          "Inadequate error handling",
+          "Scalability challenges",
+        ],
+        answer: "Scalability challenges",
+        explanation:
+          "Blocking technologies like JDBC can face scalability challenges. The allocation of dedicated threads for each connection or request can limit the system's scalability, especially in high-concurrency scenarios. This can result in slower response times, increased latency, and difficulties in efficiently handling a growing number of connections or requests.",
+      },
+      {
+        text: "What is the benefit of using non-blocking or asynchronous alternatives to blocking technologies?",
+        options: [
+          "Quick response times",
+          "Simplified error handling",
+          "Simpler programming model",
+          "Reduced risk of deadlock",
+        ],
+        answer: "Quick response times",
+        explanation:
+          "Non-blocking or asynchronous alternatives to blocking technologies offer benefits such as quick response times. Users expect fast and smooth interactions in today's digital world, making responsiveness a critical aspect of any application.",
+      },
+      {
+        text: "In the metaphor of organization, how can the efficiency of management be improved?",
+        options: [
+          "The chief should control all the tasks.",
+          "Employees should pass the results of the task to the next employee in the workflow",
+          "Employees should work on the tasks together",
+          "Organization should have more managers for more efficient management",
+        ],
+        answer:
+          "Employees should pass the results of the task to the next employee in the workflow",
+        explanation:
+          "Management efficiency can be improved by defining a pipeline of task processing. In this process, an employee, after finishing their task, will pass the result not to the chief (main thread) but to another employee. This way, multiple tasks can be executed in parallel, enhancing the organization’s overall efficiency. This corresponds to how asynchronous programming can improve efficiency in a program.",
+      },
+      {
+        text: "In the metaphor of the organization, what does the scenario of 'chief waiting for John to finish the task while Mike is resting' illustrate?",
+        options: [
+          "The benefits of multitasking",
+          "The underutilization of resources",
+          "The importance of the chief's role in task delegation",
+          "The necessity for frequent synchronization",
+        ],
+        answer: "The underutilization of resources",
+        explanation:
+          "In this scenario, the chief (main thread) waits for John (another thread) to finish the task before delegating a new task. Meanwhile, Mike (yet another thread) is idle, waiting for work. This is a clear demonstration of the underutilization of resources, where one thread is idle and could have been used to carry out additional tasks to increase efficiency.",
+      },
+      {
+        text: "What the metaphor of the mother and daughter vs. a single man washing clothes does NOT illustrate?",
+        options: [
+          "The inefficiency of frequent synchronization",
+          "The importance of having multiple threads for high efficiency",
+          "The benefits of independent work",
+          "Importance of having the work completion notification",
+        ],
+        answer: "The importance of having multiple threads for high efficiency",
+        explanation:
+          "The metaphor doesn't necessarily imply that multiple threads are more efficient than a single one, especially when considering the overhead of coordination and synchronization between threads. The mother and daughter must regularly coordinate their tasks, which introduces interruptions and delays to their workflow, hence reducing their efficiency. The man, on the other hand, doesn't need to synchronize with anyone. He can work on his own and simply wait for the notification (the end of the washing cycle) to move on to the next task. This is a more efficient workflow as there are no unnecessary interruptions.",
+      },
+      {
+        text: "How might an asynchronous approach improve the efficiency of a coffee machine system in a busy office?",
+        options: [
+          "By creating fixed time slots for employees to get coffee.",
+          "By allowing users to wait in a physical queue, ensuring fairness.",
+          "By notifing employees when the coffee machine becomes available, eliminating waiting time.",
+          "By increasing the number of coffee machines in the office.",
+        ],
+        answer:
+          "By notifing employees when the coffee machine becomes available, eliminating waiting time.",
+        explanation:
+          "An asynchronous system in this context would involve a notification system where, once a coffee machine is available, a notification is sent to employees. Employees can choose to respond to the notification if they are free or ignore it if they are currently busy, allowing the system to optimize the use of the coffee machine.",
+      },
+      {
+        text: "What potential problem might occur with the implementation of a fixed time slot system for a coffee machine used in an office?",
+        options: [
+          "Employees might feel pressured to make their coffee in the allotted time.",
+          "The coffee machine could be underutilized if making coffee takes less than the allocated time.",
+          "The schedule could be shifted if coffee preparation takes longer than expected.",
+          "All of the above",
+        ],
+        answer: "All of the above",
+        explanation:
+          "All these issues could occur in a fixed time slot system, as it doesn't account for variability in coffee preparation time and doesn't allow for flexibility based on employee availability or workload.",
+      },
+      {
+        text: "What analogy doesn't illustrate asynchronous programming?",
+        options: [
+          "Pipeline",
+          "Banking transaction",
+          "Workflow",
+          "Business process",
+        ],
+        answer: "Banking transaction",
+        explanation:
+          "Banking transactions typically follow a sequential and synchronous process. When you perform a banking transaction, such as withdrawing money from an ATM or transferring funds between accounts, the system waits for each transaction to complete before moving on to the next one. In asynchronous programming, on the other hand, tasks can be executed independently and concurrently without waiting for each task to finish before moving on to the next one. It allows for parallel execution of tasks, where each task operates independently and doesn't block the execution of other tasks. Asynchronous programming is often used in scenarios where tasks can be executed simultaneously, such as in pipelines, workflows, and business processes, but it doesn't align with the sequential and synchronous nature of banking transactions.",
+      },
+      {
+        text: "How are blocking I/O operations handled in a traditional multithread server like Tomcat?",
+        options: [
+          "By using a single thread for all connections.",
+          "By assigning a separate thread for each connection.",
+          "By employing asynchronous I/O operations.",
+          "By creating a new process for each connection.",
+        ],
+        answer: "By assigning a separate thread for each connection.",
+        explanation:
+          "In a traditional multithread server like Tomcat, a thread pool is used to handle blocking I/O operations. When a new connection is established, a free thread from the pool is assigned to handle that connection. This allows for better scalability and resource management compared to creating a new thread for each connection.",
+      },
+      {
+        text: "What is a context switch overhead?",
+        options: [
+          "The time required to perform arithmetic operations.",
+          "The cost of switching between threads.",
+          "The delay in I/O operations due to blocking.",
+          "The time taken to allocate memory for a new process.",
+        ],
+        answer: "The cost of switching between threads.",
+        explanation:
+          "Context switch overhead refers to the time or cost incurred when switching the execution context from one thread or process to another. It involves saving the current execution state, loading the new execution state, and updating memory management if necessary.",
+      },
+      {
+        text: "Which of the following is NOT a way to reduce context switch overhead?",
+        options: [
+          "Using non-blocking Input/Output.",
+          "Asynchronous programming.",
+          "Creating as many threads as CPU cores.",
+          "Increasing the number of threads.",
+        ],
+        answer: "Increasing the number of threads.",
+        explanation:
+          "Increasing the number of threads will not reduce context switch overhead. On the contrary, a big number of threads can lead to higher overhead and negatively impact system performance.",
+      },
+      {
+        text: "What is NOT the disadvantage of the Future interface?",
+        options: [
+          "No way to compose multiple asynchronous operations",
+          "Lack of exception handling",
+          "Blocking nature of the get() method",
+          "No way to know if the asynchronous operation completed",
+        ],
+        answer: "No way to know if the asynchronous operation completed",
+        explanation:
+          "The Future interface lacks composition capabilities, has a blocking get() method, and doesn’t have support for error handling. These limitations have led to the development of alternative abstractions, such as CompletableFuture, which provide more advanced features for handling asynchronous computations.",
+      },
+      {
+        text: "What is a primary use case for CompletableFuture.supplyAsync?",
+        options: [
+          "Get value from the Supplier and start sequential execution of tasks",
+          "Get value from the Supplier and start an asynchronous pipeline of tasks.",
+          "Managing and streamlining exception handling within asynchronous workflows.",
+          "Cancelling asynchronous operations.",
+        ],
+        answer:
+          "Get value from the Supplier and start an asynchronous pipeline of tasks.",
+        explanation:
+          "A primary use case for CompletableFuture.supplyAsync is to start an asynchronous pipeline of tasks. By using this method, tasks can be scheduled to run asynchronously, potentially leveraging multiple threads or processors for improved performance and concurrency. It allows for efficient parallelization of independent computations and can be beneficial in scenarios where tasks can be executed concurrently to achieve faster results.",
+      },
+      {
+        text: "What does the thenApply method do?",
+        options: [
+          "Executes a task asynchronously.",
+          "Performs a transformation of the result of a previous computation in the same thread.",
+          "Performs a transformation of the result of a previous computation in the new thread.",
+          "Applies the function and blocks until it will be completed.",
+        ],
+        answer:
+          "Performs a transformation of the result of a previous computation in the same thread.",
+        explanation:
+          "The thenApply method is used to chain and apply a function to the result of a previous computation, producing a new CompletableFuture with a transformed result.",
+      },
+      {
+        text: "What type of values does thenApply method take as an argument?",
+        options: ["Consumer", "Supplier", "Function", "Predicate"],
+        answer: "Function",
+        explanation:
+          "The thenApply method takes a Function as its argument. The Function represents a function that takes the result of the previous computation and produces a new result.",
+      },
+      {
+        text: "What is the difference between thenApply and thenApplyAsync?",
+        options: [
+          "thenApply executes the function in the same thread as the previous function in the pipeline, while thenApplyAsync executes it in a new thread.",
+          "thenApply executes the function in a new thread, while thenApplyAsync executes it in the same thread as the previous function in the pipeline.",
+          "thenApplyAsync allows for parallel execution, while thenApply does not.",
+          "thenApplyAsync executes the function synchronously, while thenApply executes it asynchronously.",
+        ],
+        answer:
+          "thenApply executes the function in the same thread as the previous function in the pipeline, while thenApplyAsync executes it in a new thread.",
+        explanation:
+          "The main difference between thenApply and thenApplyAsync lies in their execution behavior. thenApply executes the function in the same thread, whereas thenApplyAsync executes it asynchronously.",
+      },
+      {
+        text: "How might you use CompletableFuture to handle hotel and flight bookings when working on a travel booking application?",
+        options: [
+          "Sequentially run findFlight and findHotel, then combine the results.",
+          "Run findFlight and findHotel concurrently, then sequentially process the results.",
+          "Run findFlight and findHotel concurrently, then combine the results.",
+          "Sequentially run findFlight and findHotel, then process the results separately.",
+        ],
+        answer:
+          "Run findFlight and findHotel concurrently, then combine the results.",
+        explanation:
+          "In a travel booking application scenario, finding a flight and finding a hotel are independent tasks. By using CompletableFuture, these tasks can be run concurrently, and the results can be combined to form a complete travel plan once both tasks are completed.",
+      },
+      {
+        text: "What is the purpose of thenCompose method?",
+        options: [
+          "It performs a computation asynchronously.",
+          "It combines the results of two CompletableFuture instances.",
+          "It chains multiple CompletableFuture instances together.",
+          "It cancels a CompletableFuture computation and switch to the next one.",
+        ],
+        answer: "It chains multiple CompletableFuture instances together.",
+        explanation:
+          "The thenCompose method is used to chain multiple CompletableFuture instances together, where the output of one CompletableFuture becomes the input for the next computation.",
+      },
+      {
+        text: "In what cases should thenCompose method be used?",
+        options: [
+          "When performing a computation synchronously.",
+          "When combining the results of two independent CompletableFuture instances.",
+          "When we need to pass the result of the asynchronous workflow to another workflow.",
+          "When canceling a CompletableFuture computation.",
+        ],
+        answer:
+          "When we need to pass the result of the asynchronous workflow to another workflow.",
+        explanation:
+          "The thenCompose method should be used when you have a dependency between multiple asynchronous computations and need to chain them together in a sequential manner. It allows you to express complex workflows and dependencies by providing a clear and concise way to handle dependent asynchronous operations.",
+      },
+      {
+        text: "What does the anyOf method do?",
+        options: [
+          "Waits for the completion of multiple CompletableFuture instances and returns the combined result.",
+          "Waits for the completion of multiple CompletableFuture instances and returns the result of the first completed future.",
+          "Combines the results of multiple CompletableFuture instances into a single CompletableFuture.",
+          "Cancels the execution of multiple CompletableFuture instances.",
+        ],
+        answer:
+          "Waits for the completion of multiple CompletableFuture instances and returns the result of the first completed future.",
+        explanation:
+          "The anyOf method waits for the completion of multiple CompletableFuture instances and returns the result of the first completed future among them.",
+      },
+      {
+        text: "Which of the following scenarios would benefit most from the use of 'anyOf' function?",
+        options: [
+          "When you need to execute all algorithms and gather all results.",
+          "When there's only one source to obtain a result.",
+          "When it doesn't matter which source provides the result as long as it is obtained quickly.",
+          "When the sequence in which algorithms are executed is important.",
+        ],
+        answer:
+          "When it doesn't matter which source provides the result as long as it is obtained quickly.",
+        explanation:
+          "The 'anyOf' function is used when there are multiple ways to get a result and the goal is to get the result as quickly as possible. 'anyOf' returns the result of the fastest algorithm or source, making it suitable for situations where speed is crucial and the source of the result is not of primary importance.",
+      },
+      {
+        text: "What is the primary benefit of using 'anyOf' function when working with multiple algorithms or servers?",
+        options: [
+          "It increases the reliability of the result by using multiple sources.",
+          "It provides a system for handling server downtime.",
+          "It minimizes waiting time.",
+          "It ensures that all algorithms or servers are used equally.",
+        ],
+        answer: "It minimizes waiting time.",
+        explanation:
+          "The main benefit of the 'anyOf' function is that it allows for the swift acquisition of results. It does this by running algorithms or requests in parallel and using the result from the source that completes first. This minimizes waiting time, especially in cases where some sources may be significantly slower than others.",
+      },
+      {
+        text: "What type of values does the anyOf method accept as arguments?",
+        options: [
+          "An array of Supplier instances.",
+          "An array of Runnable instances.",
+          "An array of CompletableFuture instances.",
+          "An array of Callable instances.",
+        ],
+        answer: "An array of CompletableFuture instances.",
+        explanation:
+          "The anyOf method accepts an array of CompletableFuture instances as its arguments. It can accept any number of CompletableFuture instances.",
+      },
+      {
+        text: "What does the applyToEither method do?",
+        options: [
+          "Waits for the completion of multiple CompletableFuture instances and returns the result of the first completed future.",
+          "Applies a transformation function to the result of the first completed CompletableFuture.",
+          "Combines the results of multiple CompletableFuture instances into a single CompletableFuture.",
+          "Cancels the execution of multiple CompletableFuture instances.",
+        ],
+        answer:
+          "Applies a transformation function to the result of the first completed CompletableFuture.",
+        explanation:
+          "The applyToEither method is used to apply a function to the result of the first completed CompletableFuture among the provided futures.",
+      },
+    ],
+  },
 };
