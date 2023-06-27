@@ -873,7 +873,7 @@ export const questionDB = {
   },
   5: {
     title: "Topic 3. Asynchronous programming",
-    subtitle: "Quiz 1. Asynchronous programming and Completable Future basics",
+    subtitle: "Quiz 1. Asynchronous programming and CompletableFuture basics",
     questions: [
       {
         text: "What is the major feature of asynchronous programming?",
@@ -1192,6 +1192,216 @@ export const questionDB = {
           "Applies a transformation function to the result of the first completed CompletableFuture.",
         explanation:
           "The applyToEither method is used to apply a function to the result of the first completed CompletableFuture among the provided futures.",
+      },
+    ],
+  },
+  6: {
+    title: "Topic 3. CompletableFuture",
+    subtitle: "Quiz 2. CompletableFuture advanced topics",
+    questions: [
+      {
+        text: "How is the exceptionally method in CompletableFuture different from the catch block?",
+        options: [
+          "It is built into the pipeline",
+          "It does not handle exceptions",
+          "It is not built into the pipeline",
+          "None of the above",
+        ],
+        answer: "It is built into the pipeline",
+        explanation:
+          "The exceptionally method is built into the CompletableFuture pipeline and is designed to handle any exceptions that occur in previous stages of the pipeline. Unlike a traditional catch block, it can recover the pipeline flow.",
+      },
+      {
+        text: "What happens when an exception occurs in the pipeline before the 'exceptionally' callback?",
+        options: [
+          "The pipeline continues to execute",
+          "The pipeline stops executing and jumps to the exceptional callback",
+          "The pipeline executes only half of the tasks",
+          "The pipeline deletes all the tasks",
+        ],
+        answer:
+          "The pipeline stops executing and jumps to the exceptional callback",
+        explanation:
+          "If an exception occurs in the pipeline before the 'exceptionally' method, the execution of the pipeline is halted and control is transferred to the exceptionally callback.",
+      },
+      {
+        text: "How does the handle method in CompletableFuture work?",
+        options: [
+          "It handles exceptions only",
+          "It executes only when there is no exception",
+          "It executes in both cases, whether there is an exception or not",
+          "It cannot handle exceptions",
+        ],
+        answer:
+          "It executes in both cases, whether there is an exception or not",
+        explanation:
+          "The handle method is called whether or not an exception occurs. It takes two parameters: the result of the computation and the exception thrown. If the computation was successful, the exception parameter is null.",
+      },
+      {
+        text: "Can a task be interrupted in CompletableFuture?",
+        options: [
+          "Yes, always",
+          "No, never",
+          "Only if the task hasn't yet executed",
+          "Only if it is running with a custom executor",
+        ],
+        answer: "Only if the task hasn't yet executed",
+        explanation:
+          "In CompletableFuture, if a task has started execution it cannot be interrupted. Only tasks that haven't started execution can be cancelled.",
+      },
+      {
+        text: "Which thread pool does CompletableFuture use by default?",
+        options: [
+          "Fixed thread pool",
+          "Cached thread pool",
+          "Fork-join pool",
+          "Single thread executor",
+        ],
+        answer: "Fork-join pool",
+        explanation:
+          "By default, CompletableFuture uses the ForkJoinPool.commonPool() as its asynchronous execution facility.",
+      },
+      {
+        text: "Can you provide a custom executor when using CompletableFuture?",
+        options: [
+          "Yes",
+          "No",
+          "Only in specific cases",
+          "Only when using Spring",
+        ],
+        answer: "Yes",
+        explanation:
+          "Yes, CompletableFuture provides overloaded methods that accept an Executor, allowing you to provide a custom Executor.",
+      },
+      {
+        text: "When should CompletableFuture be used over messaging?",
+        options: [
+          "When you need distributed communication",
+          "When you need to parallelize tasks within a single JVM",
+          "When you have a very complicated system",
+          "When you need to communicate over TCP/IP",
+        ],
+        answer: "When you need to parallelize tasks within a single JVM",
+        explanation:
+          "CompletableFuture is ideal for asynchronous programming and parallelizing tasks within a single JVM. Messaging systems are better for inter-process communication or distributed communication.",
+      },
+      {
+        text: "What does CompletableFuture not provide that messaging does?",
+        options: [
+          "Scalability",
+          "Asynchronous computation",
+          "Retry features",
+          "Parallel processing",
+        ],
+        answer: "Retry features",
+        explanation:
+          "CompletableFuture does not inherently provide retry features. Messaging systems, on the other hand, often provide robust features for message delivery, including retries.",
+      },
+      {
+        text: "What does the @EnableAsync annotation do in Spring?",
+        options: [
+          "Enables support for asynchronous methods",
+          "Enables parallel execution of methods",
+          "Enables custom thread pool",
+          "Enables CompletableFuture",
+        ],
+        answer: "Enables support for asynchronous methods",
+        explanation:
+          "The @EnableAsync annotation in Spring enables the processing of @Async annotations, which indicate that a method should be run asynchronously, potentially on a separate thread.",
+      },
+      {
+        text: "What is the return type of an @Async method in Spring?",
+        options: ["AsyncFuture", "CompletableFuture", "Future", "Optional"],
+        answer: "CompletableFuture",
+        explanation:
+          "For a Spring @Async method, the return type can be CompletableFuture. It enables the caller of the method to continue with other work or wait for the computation to complete.",
+      },
+      {
+        text: "How does Spring manage CompletableFuture?",
+        options: [
+          "By using a built-in Task Executor",
+          "By using a custom thread pool",
+          "By manually managing threads",
+          "By ignoring thread management",
+        ],
+        answer: "By using a built-in Task Executor",
+        explanation:
+          "Spring manages CompletableFuture through its TaskExecutor abstraction, which is backed by a built-in ExecutorService (thread pool).",
+      },
+      {
+        text: "What's the difference between CompletableFuture and messaging in terms of scalability?",
+        options: [
+          "Messaging scales up in the cluster, CompletableFuture scales up within a single JVM",
+          "CompletableFuture scales up in the cluster, Messaging scales up within a single JVM",
+          "Both scale up within a single JVM",
+          "Both scale up in the cluster",
+        ],
+        answer:
+          "Messaging scales up in the cluster, CompletableFuture scales up within a single JVM",
+        explanation:
+          "Messaging is often used for communication between different nodes in a distributed system, so it can scale up across a cluster of machines. CompletableFuture, however, is for executing tasks asynchronously and in parallel on a single JVM, so it scales up within a single machine.",
+      },
+      {
+        text: "Why might you use CompletableFuture rather than messaging?",
+        options: [
+          "You need to distribute tasks across many computers",
+          "You need to ensure high reliability in network communication",
+          "You want to parallelize tasks within a single JVM",
+          "You need to communicate across multiple JVMs or different programming languages",
+        ],
+        answer: "You want to parallelize tasks within a single JVM",
+        explanation:
+          "CompletableFuture allows you to perform tasks asynchronously and in parallel within a single JVM, taking advantage of multi-core processors for increased performance.",
+      },
+      {
+        text: "How is the task executor service defined in a Spring application?",
+        options: [
+          "As an annotation",
+          "As a bean",
+          "As a CompletableFuture",
+          "As a Future object",
+        ],
+        answer: "As a bean",
+        explanation:
+          "In a Spring application, the TaskExecutor service is typically defined as a bean in the application context.",
+      },
+      {
+        text: "Why is it important for messaging to provide a way for reliability?",
+        options: [
+          "Because network communication is inherently unreliable",
+          "Because it works on a single JVM",
+          "Because messaging is complicated in setup",
+          "Because messaging cannot parallelize data processing",
+        ],
+        answer: "Because network communication is inherently unreliable",
+        explanation:
+          "Messaging provides features like retries and acknowledgments to ensure reliable delivery of messages. This is important as network communication can be unreliable due to various reasons such as network failures, system crashes, etc.",
+      },
+      {
+        text: "What is the significant benefit of CompletableFuture in terms of scalability?",
+        options: [
+          "It allows scaling up within a single JVM to utilize all processor cores",
+          "It allows scaling up across different machines in a cluster",
+          "It doesn't provide any scalability benefits",
+          "It allows scaling up across different programming languages",
+        ],
+        answer:
+          "It allows scaling up within a single JVM to utilize all processor cores",
+        explanation:
+          "CompletableFuture is a tool for making programs that use many processor cores more easily. It allows to parallelize and run tasks asynchronously within a single JVM, thus utilizing all processor cores.",
+      },
+      {
+        text: "What is the disadvantage of using messaging compared to CompletableFuture?",
+        options: [
+          "It does not allow asynchronous computation",
+          "It can introduce longer latency due to network communication overhead",
+          "It cannot parallelize processing and combine data",
+          "It cannot work in a distributed system",
+        ],
+        answer:
+          "It can introduce longer latency due to network communication overhead",
+        explanation:
+          "Messaging involves communication over a network which can introduce latency due to network overhead. Also, the reliability features like retries, acknowledgments etc., can increase the latency.",
       },
     ],
   },
