@@ -1405,4 +1405,369 @@ export const questionDB = {
       },
     ],
   },
+  7: {
+    title: "Topic 4. Microservice Data Management",
+    subtitle: "Quiz 1. SAGA",
+    questions: [
+      {
+        text: "What is the main purpose of the SAGA pattern in microservices data management?",
+        options: [
+          "It is used for splitting the monolith into parts",
+          "It is used for implementing distributed transactions",
+          "It is used for decreasing the complexity of the system",
+          "It is used for improving system performance",
+        ],
+        answer: "It is used for implementing distributed transactions",
+        explanation:
+          "The SAGA pattern is useful in a microservices architecture for implementing distributed transactions where it provides a mechanism to manage data consistency across services with the ability to commit and rollback changes.",
+      },
+      {
+        text: "How does a two-phase commit protocol handle transactions?",
+        options: [
+          "It executes all transactions simultaneously",
+          "It executes one transaction at a time",
+          "It prepares all transactions before committing them",
+          "It executes transactions randomly",
+        ],
+        answer: "It prepares all transactions before committing them",
+        explanation:
+          "In a two-phase commit protocol, a mediator (transaction dispatcher) controls the transactions. It ensures all transactions are prepared (every lock is assigned and everything is ready for the commit) before they are committed.",
+      },
+      {
+        text: "Which Java API supports the two-phase commit approach?",
+        options: [
+          "Java Persistence API (JPA)",
+          "Java Transaction API (JTA)",
+          "Java Database Connectivity (JDBC)",
+          "Java API for JSON Processing (JSON-P)",
+        ],
+        answer: "Java Transaction API (JTA)",
+        explanation:
+          "Java Transaction API (JTA) is part of Java Enterprise Edition and it supports the two-phase commit approach to manage transactions.",
+      },
+      {
+        text: "What is the role of the transaction dispatcher in a two-phase commit protocol?",
+        options: [
+          "To execute transactions",
+          "To rollback transactions",
+          "To prepare transactions",
+          "To control transactions",
+        ],
+        answer: "To control transactions",
+        explanation:
+          "The transaction dispatcher in a two-phase commit protocol acts as a mediator controlling the transactions. It ensures that all transactions are prepared and ready to be committed.",
+      },
+      {
+        text: "What are the drawbacks of the two-phase commit approach?",
+        options: [
+          "It's blocking and has the potential for a single point of failure",
+          "It's not suitable for distributed systems",
+          "It doesn't have a mediator",
+          "It doesn't require any preparation of transactions",
+        ],
+        answer:
+          "It's blocking and has the potential for a single point of failure",
+        explanation:
+          "The two-phase commit approach leaves transactions in a blocking state for an indefinite time. The transaction dispatcher, or mediator, can also fail, potentially leading to transactions being blocked for a long time, maybe even indefinitely.",
+      },
+      {
+        text: "Which of the following is NOT a property of distributed systems according to the CAP theorem?",
+        options: [
+          "Consistency",
+          "Partition tolerance",
+          "Redundancy",
+          "Availability",
+        ],
+        answer: "Redundancy",
+        explanation:
+          "The CAP theorem refers to Consistency, Availability, and Partition tolerance. Redundancy is not a property covered by this theorem.",
+      },
+      {
+        text: "Which property of distributed systems means that all clients see the same view of the data?",
+        options: [
+          "Partition tolerance",
+          "Consistency",
+          "Availability",
+          "Decentralization",
+        ],
+        answer: "Consistency",
+        explanation:
+          "Consistency in a distributed system means all clients see the same data. If one client changes the data, another client should see this change immediately.",
+      },
+      {
+        text: "What is eventual consistency?",
+        options: [
+          "Data is synchronized immediately",
+          "Data is never synchronized",
+          "Data is synchronized over time",
+          "Data is inconsistently synchronized",
+        ],
+        answer: "Data is synchronized over time",
+        explanation:
+          "Eventual consistency refers to the state when data will be synchronized over time, not immediately. During this time, the system can be inconsistent.",
+      },
+      {
+        text: "What does availability mean in the context of the CAP theorem?",
+        options: [
+          "All clients see the same view of the data",
+          "The system works even when split into parts",
+          "Every client can find a replica of the data in case of partial node failures",
+          "The system is always consistent",
+        ],
+        answer:
+          "Every client can find a replica of the data in case of partial node failures",
+        explanation:
+          "In the context of the CAP theorem, availability refers to the property that every client can find a replica of the data even in the event of partial node failures.",
+      },
+      {
+        text: "What does partition tolerance refer to in the CAP theorem?",
+        options: [
+          "The system is always consistent",
+          "The system may work even when split into parts",
+          "All clients see the same view of the data",
+          "Every client can find a replica of the data in case of partial node failures",
+        ],
+        answer: "The system may work even when split into parts",
+        explanation:
+          "Partition tolerance in the CAP theorem refers to the capability of the system to function as expected even in the presence of network failures that split the system into two or more parts.",
+      },
+      {
+        text: "What kind of systems is the two-phase commit protocol most suitable for?",
+        options: [
+          "Consistent and Available systems",
+          "Consistent and Partition-tolerant systems",
+          "Available and Partition-tolerant systems",
+          "None of the above",
+        ],
+        answer: "Consistent and Available systems",
+        explanation:
+          "The two-phase commit protocol is suitable for systems that require consistency and availability but can tolerate a lack of partition tolerance.",
+      },
+      {
+        text: "What kind of system does the SAGA pattern support according to the CAP theorem?",
+        options: [
+          "Consistent and Available systems",
+          "Consistent and Partition-tolerant systems",
+          "Available and Partition-tolerant systems",
+          "None of the above",
+        ],
+        answer: "Available and Partition-tolerant systems",
+        explanation:
+          "The SAGA pattern supports systems that are available and partition-tolerant, but it does not guarantee immediate consistency, only eventual consistency.",
+      },
+      {
+        text: "According to the CAP theorem, how many properties out of Consistency, Availability, and Partition tolerance can be satisfied at the same time?",
+        options: ["1", "2", "3", "4"],
+        answer: "2",
+        explanation:
+          "The CAP theorem states that in any distributed system, we can only guarantee two out of the following three properties at the same time: Consistency, Availability, and Partition tolerance.",
+      },
+      {
+        text: "Why is it difficult to implement consistency in distributed systems?",
+        options: [
+          "Because data is never synchronized",
+          "Because it requires immediate synchronization between all nodes",
+          "Because it requires partition tolerance",
+          "Because it requires availability",
+        ],
+        answer:
+          "Because it requires immediate synchronization between all nodes",
+        explanation:
+          "Consistency in distributed systems is difficult to achieve because it requires all clients to see the same view of the data at any given time. This requires immediate synchronization between all nodes, which is challenging to implement in a distributed environment.",
+      },
+      {
+        text: "In a two-phase commit, what happens when one of transactions cannot go to the transaction-prepared state?",
+        options: [
+          "All transactions are committed",
+          "The system crashes",
+          "All transactions are rolled back",
+          "The system becomes inconsistent",
+        ],
+        answer: "All transactions are rolled back",
+        explanation:
+          "In a two-phase commit, if any of the transactions cannot reach the transaction prepared state, all the transactions will be rolled back to maintain data consistency.",
+      },
+      {
+        text: "In a two-phase commit, what does preparing a transaction mean?",
+        options: [
+          "Acquiring every lock and preparing everything to commit a transaction",
+          "Unlocking all resources",
+          "Committing all operations",
+          "Starting a new transaction",
+        ],
+        answer:
+          "Acquiring every lock and preparing everything to commit a transaction",
+        explanation:
+          "In a two-phase commit, preparing a transaction means that every lock is acquired and everything is ready to commit the transaction, but it has not been committed yet.",
+      },
+      {
+        text: "In a SAGA pattern, what is a compensating transaction?",
+        options: [
+          "A transaction that reduces the amount of data transferred",
+          "A transaction that checks the consistency of data",
+          "A transaction that reverses a previous operation",
+          "A transaction that locks the database for editing",
+        ],
+        answer: "A transaction that reverses a previous operation",
+        explanation:
+          "A compensating transaction in a SAGA pattern is used to reverse the effect of a previous operation in the case of failure.",
+      },
+      {
+        text: "What are the two approaches to implementing SAGA?",
+        options: [
+          "Database and Message Queue",
+          "Choreography and Orchestration",
+          "Compensation and Reversal",
+          "Microservice and Monolith",
+        ],
+        answer: "Choreography and Orchestration",
+        explanation:
+          "The two main ways to implement the SAGA pattern are Choreography, where each microservice manages its own transactions, and Orchestration, where a central orchestrator manages the transactions.",
+      },
+      {
+        text: "How does the Choreography approach to SAGA operate?",
+        options: [
+          "Through a central orchestrator",
+          "Through a shared database",
+          "Each service manages its own transactions",
+          "Through a single service managing all transactions",
+        ],
+        answer: "Each service manages its own transactions",
+        explanation:
+          "In the Choreography approach, each microservice or service performs the operation internally as a local transaction and then passes the request to the next microservice in the chain.",
+      },
+      {
+        text: "How does the Orchestration approach to SAGA operate?",
+        options: [
+          "Through a central coordinator",
+          "Through a shared database",
+          "Each service manages its own transactions",
+          "Through a single service managing all transactions",
+        ],
+        answer: "Through a central coordinator",
+        explanation:
+          "In the Orchestration approach, a central coordinator or service manages all the transactions.",
+      },
+      {
+        text: "Which SAGA approach is more distributed and flexible?",
+        options: ["Choreography", "Orchestration", "Neither", "Both"],
+        answer: "Choreography",
+        explanation:
+          "The Choreography approach is more distributed and flexible as each service is self-controlled and implements operations internally.",
+      },
+      {
+        text: "Which approach is more resilient to failures?",
+        options: ["Choreography", "Orchestration", "Neither", "Both"],
+        answer: "Choreography",
+        explanation:
+          "Choreography is more resilient to failures as failure is isolated to individual services.",
+      },
+      {
+        text: "How does a SAGA pattern differ from a two-phase commit regarding consistency?",
+        options: [
+          "SAGA guarantees strong consistency",
+          "Two-phase commit guarantees eventual consistency",
+          "SAGA guarantees eventual consistency",
+          "Two-phase commit and SAGA guarantee the same level of consistency",
+        ],
+        answer: "SAGA guarantees eventual consistency",
+        explanation:
+          "SAGA does not guarantee strong consistency like a two-phase commit. It ensures eventual consistency, where the system becomes consistent at some point after the operation.",
+      },
+      {
+        text: "Which pattern can be used for implementing distributed transactions?",
+        options: ["Two-phase commit", "SAGA", "Both", "Neither"],
+        answer: "Both",
+        explanation:
+          "Both SAGA and Two-phase commit are applicable for implementing distributed transactions.",
+      },
+      {
+        text: "Which pattern is suitable for long-lived transactions running on several distributed microservices?",
+        options: ["Two-phase commit", "SAGA", "Both", "Neither"],
+        answer: "SAGA",
+        explanation:
+          "SAGA is suitable for long-lived transactions running on several distributed microservices, as it is designed for managing distributed transactions.",
+      },
+      {
+        text: "Which of the following is a drawback of a two-phase commit?",
+        options: [
+          "It is blocking in nature",
+          "It does not support distributed transactions",
+          "It does not ensure data consistency",
+          "It does not require locks on resources",
+        ],
+        answer: "It is blocking in nature",
+        explanation:
+          "A significant drawback of a two-phase commit is that it is blocking in nature, leaving the database in a blocked state for an indefinitely long time.",
+      },
+      {
+        text: "Which pattern avoids resource locking?",
+        options: ["Two-phase commit", "SAGA", "Both", "Neither"],
+        answer: "SAGA",
+        explanation:
+          "The SAGA pattern avoids resource locking, behaving like optimistic transactions.",
+      },
+      {
+        text: "In a SAGA pattern, when does a system show an inconsistent state?",
+        options: [
+          "Always",
+          "Never",
+          "Between two local transactions",
+          "After all transactions are complete",
+        ],
+        answer: "Between two local transactions",
+        explanation:
+          "In a SAGA pattern, at some moment in time, for example, between two local transactions, the system can be in an inconsistent state.",
+      },
+      {
+        text: "How does SAGA pattern isolate transactions?",
+        options: [
+          "It does not provide isolation",
+          "Isolation is managed globally",
+          "Isolation is managed only locally",
+          "Isolation is managed by the transaction coordinator",
+        ],
+        answer: "Isolation is managed only locally",
+        explanation:
+          "In a SAGA pattern, isolation is managed only at the local level, each transaction is independent of the others.",
+      },
+      {
+        text: "What happens in a SAGA pattern if the system experiences a long timeout?",
+        options: [
+          "The current transaction is paused and resumed later",
+          "The entire SAGA is restarted from the beginning",
+          "The current operation is canceled and compensated",
+          "The system waits indefinitely for the timeout to be resolved",
+        ],
+        answer: "The current operation is canceled and compensated",
+        explanation:
+          "In a SAGA pattern, if a timeout occurs (i.e., service is unavailable for a long time), the operation fails and all previous operations are rolled back.",
+      },
+      {
+        text: "How is a single point of failure problem managed in the SAGA pattern?",
+        options: [
+          "It is prevented by having a central orchestrator",
+          "It is prevented by having each service control its own transactions",
+          "It is not managed and can occur",
+          "It is managed by the database",
+        ],
+        answer:
+          "It is prevented by having each service control its own transactions",
+        explanation:
+          "The SAGA pattern manages the single point of failure problem by decentralizing control, especially in the Choreography approach. Each service controls its own transactions, eliminating a single point of failure.",
+      },
+      {
+        text: "What kind of transaction behavior does the SAGA pattern resemble?",
+        options: [
+          "Optimistic transactions",
+          "Pessimistic transactions",
+          "Traditional transactions",
+          "Distributed transactions",
+        ],
+        answer: "Optimistic transactions",
+        explanation:
+          "The SAGA pattern resembles optimistic transactions where it hopes it won't need to rollback. If a rollback is required, the SAGA pattern can run compensating transactions to roll back the whole sequence of operations.",
+      },
+    ],
+  },
 };
