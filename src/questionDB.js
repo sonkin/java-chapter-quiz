@@ -1407,7 +1407,7 @@ export const questionDB = {
   },
   7: {
     title: "Topic 4. Microservice Data Management",
-    subtitle: "Quiz 1. SAGA",
+    subtitle: "Quiz 1. SAGA pattern",
     questions: [
       {
         text: "What is the main purpose of the SAGA pattern in microservices data management?",
