@@ -1770,4 +1770,148 @@ export const questionDB = {
       },
     ],
   },
+  8: {
+    title: "Topic 4. Microservices Data Management",
+    subtitle: "Quiz 2. Event Sourcing and CQRS",
+    questions: [
+      {
+        "text": "In Event Sourcing, are events mutable or immutable?",
+        "options": ["Mutable", "Immutable", "They can be either mutable or immutable", "It depends on the configuration"],
+        "answer": "Immutable",
+        "explanation": "Events in Event Sourcing are immutable, which means they cannot be modified or deleted once they are recorded."
+      },
+      {
+          "text": "Which of the following benefits is NOT associated with using the Event Sourcing pattern?",
+          "options": ["Audit trail", "Time traveling", "Centralized state management", "Event versioning"],
+          "answer": "Centralized state management",
+          "explanation": "Event sourcing does not provide centralized state management. Instead, it relies on the sequence of events to recreate the system state."
+      },
+      {
+          "text": "Why are events immutable in the context of Event Sourcing?",
+          "options": ["To prevent changes to the current state.", "To avoid inconsistencies in the database.", "To allow event multicasting.", "To preserve the history of what has happened in the system."],
+          "answer": "To preserve the history of what has happened in the system.",
+          "explanation": "Events are immutable in event sourcing to ensure that the history of what has happened in the system is preserved and cannot be modified or deleted."
+      },
+      {
+          "text": "What does Event Sourcing rely on as a source of truth?",
+          "options": ["Traditional database", "Event log", "Event bus", "Cache"],
+          "answer": "Event log",
+          "explanation": "For Event Sourcing, the event log is relied upon as a source of truth, unlike traditional databases where logs are complementary."
+      },
+      {
+          "text": "How does event sourcing enable effective debugging in case of exceptions?",
+          "options": ["Event sourcing allows an immediate rollback of an exception.", "It enables the exact restoration of the system's state at the moment when the exception occurred.", "It allows for real-time tracking of exceptions.", "It prevents exceptions from occurring."],
+          "answer": "It enables the exact restoration of the system's state at the moment when the exception occurred.",
+          "explanation": "Event sourcing makes it possible to restore the exact state of the system at the moment an exception or error occurred. This makes it much easier to investigate what led to the exception, which in traditional state systems can be much more difficult to achieve as it is typically harder to reproduce past system states."
+      },
+      {
+          "text": "How does Event Sourcing enable faster reconstruction of the system state?",
+          "options": ["By using caching", "By using event versioning", "By applying snapshots", "By multicasting events"],
+          "answer": "By applying snapshots",
+          "explanation": "Event Sourcing enables faster reconstruction of the system state by using snapshots, which allow applying only the events that occurred after the snapshot."
+      },
+      {
+          "text": "What is the benefit of implementing alternative history with Event Sourcing?",
+          "options": ["It reduces duplication of data", "It improves debugging", "It enables faster event processing", "It allows reconstructing the system under different conditions"],
+          "answer": "It allows reconstructing the system under different conditions",
+          "explanation": "Implementing alternative history with Event Sourcing allows reconstructing the system under different conditions, enabling testing and debugging various scenarios."
+      },
+      {
+          "text": "What is a significant advantage of using Event Sourcing for scalability?",
+          "options": ["Centralized state management", "Event versioning", "Possibility to use debugging", "Events multicasting"],
+          "answer": "Events multicasting",
+          "explanation": "Event sourcing enables the multicasting of events to multiple receivers, making it useful for handling distributed systems and processing events by many different systems in parallel."
+      },
+      {
+          "text": "What is eventual consistency in the context of Event Sourcing?",
+          "options": ["The event data is immediately consistent across all services.", "The event data is never consistent across all services.", "The event data is always consistent within a single service.", "The event data becomes consistent across all services over time."],
+          "answer": "The event data becomes consistent across all services over time.",
+          "explanation": "Eventual consistency in Event Sourcing means that while different services may receive and process the event data at different times, all the services will eventually have the same, consistent data."
+      },
+      {
+          "text": "How does Event Sourcing handle storing the same data in different systems?",
+          "options": ["It uses a single schema for all systems.", "It stores the same data in different formats depending on the receiver.", "It does not allow storing the same data in different systems.", "It always uses a relational database to store data."],
+          "answer": "It stores the same data in different formats depending on the receiver.",
+          "explanation": "Event Sourcing allows storing the same data in different systems and formats. The data format can vary depending on the receiver and its requirements."
+      },
+      {
+          "text": "What does CQRS stand for?",
+          "options": ["Centralized Query Responsibility Segregation", "Command Query Responsibility Separation", "Command Query Responsibility Segregation", "Centralized Query Responsibility Separation"],
+          "answer": "Command Query Responsibility Segregation",
+          "explanation": "CQRS stands for Command Query Responsibility Segregation."
+      },
+      {
+          "text": "In CQRS, what type of operation is responsible for updating the write database?",
+          "options": ["Events", "Commands", "Queries", "Observers"],
+          "answer": "Commands",
+          "explanation": "In CQRS, commands are responsible for updating the write database, representing actions that need to be performed."
+      },
+      {
+          "text": "What is the purpose of CQRS?",
+          "options": [
+              "To separate reading and writing operations",
+              "To store events in a log",
+              "To enable time traveling",
+              "To implement event versioning"
+          ],
+          "answer": "To separate reading and writing operations",
+          "explanation": "CQRS separates reading and writing operations, using different databases for each purpose."
+      },
+      {
+          "text": "What is the difference between Commands and Events?",
+          "options": [
+              "Commands answer the question what should be done, while events answer what has happened.",
+              "Commands are immutable, while events are mutable.",
+              "Commands and events serve the same purpose and are interchangeable.",
+              "Commands are used for auditing, while events are used for debugging."
+          ],
+          "answer": "Commands answer the question what should be done, while events answer what has happened.",
+          "explanation": "In Event Sourcing, commands answer the question what should be done, while events answer the question what has happened."
+      },
+      {
+          "text": "Which of the following statements is true about events in CQRS?",
+          "options": [
+              "Events are mutable and can be modified.",
+              "Events are used to synchronize the read-only and write databases.",
+              "Events answer the question of what should be done in the system.",
+              "Events can be deleted after being processed."
+          ],
+          "answer": "Events are used to synchronize the read-only and write databases.",
+          "explanation": "Events are used to synchronize the read-only and write databases in Event Sourcing, allowing changes to be propagated to the read database eventually."
+      },
+      {
+          "text": "What is one of the drawbacks of using the CQRS pattern?",
+          "options": [
+              "Increased complexity",
+              "Inability to handle read operations efficiently",
+              "Limited scalability for reading",
+              "Dependence on a specific type of database"
+          ],
+          "answer": "Increased complexity",
+          "explanation": "One of the drawbacks of using the CQRS pattern is its increased complexity in implementation and maintenance compared to traditional architectures."
+      },
+      {
+          "text": "What is the primary purpose of using the message broker in CQRS?",
+          "options": [
+              "To handle command synchronization",
+              "To enable time traveling",
+              "To store events in the event log",
+              "To facilitate synchronization between write and read databases"
+          ],
+          "answer": "To facilitate synchronization between write and read databases",
+          "explanation": "The primary purpose of the message broker in CQRS is to facilitate synchronization between the write and read databases by handling events."
+      },
+      {
+          "text": "In which situation would implementing the CQRS pattern be considered over-engineering?",
+          "options": [
+              "If you have a small number of readers",
+              "If you have a small number of writers",
+              "If your system doesn't have eventual consistency",
+              "In any of these cases"
+          ],
+          "answer": "If you have a small number of readers",
+          "explanation": "Using the CQRS pattern could be over-engineering in cases where there are fewer readers."
+      }
+    ]
+  }
 };
