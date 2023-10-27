@@ -2164,4 +2164,187 @@ export const questionDB = {
       },
     ],
   },
+  10: {
+    title: "Topic 5. Microservices Communication",
+    subtitle: "Quiz 2. Asynchronous communication",
+    questions: [
+      {
+        text: "What is the primary advantage of messaging compared to REST in terms of service relationships?",
+        options: [
+          "Tighter coupling",
+          "Requires IP definition",
+          "Higher level of flexibility",
+          "More error-prone",
+        ],
+        answer: "Higher level of flexibility",
+        explanation:
+          "Messaging offers a higher level of flexibility and true loose coupling compared to REST.",
+      },
+      {
+        text: "What property should a response message contain in the request-response model implemented with messaging?",
+        options: ["Payload ID", "Header ID", "Correlation ID", "Receiver ID"],
+        answer: "Correlation ID",
+        explanation:
+          "A response message in the request-response model implemented with messaging should contain a correlation ID to indicate that it's a response for another message.",
+      },
+      {
+        text: "Which of the following best describes the error handling in messaging compared to synchronous approach?",
+        options: [
+          "Easier in messaging",
+          "More straightforward in synchronous methods",
+          "Not possible in messaging",
+          "Requires more tools in messaging",
+        ],
+        answer: "More straightforward in synchronous methods",
+        explanation:
+          "Error handling in synchronous communication is generally more straightforward because there's an immediate response or acknowledgment. In this approach, if something goes wrong, the sender can be notified right away. On the other hand, with messaging (especially asynchronous messaging), the feedback loop is not always direct or immediate. Handling errors might involve additional mechanisms like dead-letter queues, retries, or monitoring tools to track undelivered or unprocessed messages.",
+      },
+      {
+        text: "What does messaging prevent that might occur with REST?",
+        options: [
+          "Loosely coupled services",
+          "Cascading errors",
+          "Error messages",
+          "Service flexibility.",
+        ],
+        answer: "Cascading errors",
+        explanation:
+          "Messaging can prevent cascading errors that might occur with REST, where an issue in one service affects others.",
+      },
+      {
+        text: "Which type of service is described as easier to scale?",
+        options: [
+          "Synchronous services",
+          "Asynchronous services",
+          "REST services",
+          "All of the above",
+        ],
+        answer: "Asynchronous services",
+        explanation:
+          "Asynchronous services are generally easier to scale because they don't rely on immediate responses. They can handle requests in the background, allowing for the decoupling of services and better distribution of load.",
+      },
+      {
+        text: "In a fire-and-forget model, what is the primary concern after sending a message?",
+        options: [
+          "Receiving a response",
+          "Ensuring the message was successfully delivered",
+          "Receiving an acknowledgment",
+          "Assigning a correlation ID",
+        ],
+        answer: "Ensuring the message was successfully delivered",
+        explanation:
+          "In the fire-and-forget model, the main concern is ensuring the successful delivery of the message.",
+      },
+      {
+        text: "What is the purpose of a Correlation ID in the context of messaging?",
+        options: [
+          "To ensure a message is encrypted",
+          "To ensure a message is delivered",
+          "To identify a message as a response to another message",
+          "To identify the service sending a message",
+        ],
+        answer: "To identify a message as a response to another message",
+        explanation:
+          "Correlation ID indicates that a message is a response to another message. It allows the services to find the correspondence between requests and replies.",
+      },
+      {
+        text: "How does the response time of asynchronous messaging compare to that of synchronous messaging?",
+        options: [
+          "They are usually about the same",
+          "Asynchronous messaging always has a faster response time",
+          "Asynchronous messaging can take minutes or even hours for a response",
+          "Synchronous messaging always takes hours",
+        ],
+        answer:
+          "Asynchronous messaging can take minutes or even hours for a response",
+        explanation:
+          "In asynchronous messaging, the time of response can be relatively long, sometimes taking minutes or even hours.",
+      },
+      {
+        text: "How is messaging compared to REST in terms of coupling?",
+        options: [
+          "Messaging has tighter coupling",
+          "REST has looser coupling",
+          "Messaging has a higher level of flexibility and looser coupling",
+          "REST and messaging have the same level of coupling",
+        ],
+        answer:
+          "Messaging has a higher level of flexibility and looser coupling",
+        explanation:
+          "Messaging provides a higher level of flexibility compared to REST. With messaging, there is a true 100% loose coupling.",
+      },
+      {
+        text: "What problem does messaging help prevent that can occur with REST?",
+        options: [
+          "Memory leaks",
+          "Slow response times",
+          "Cascading errors",
+          "Lack of scalability",
+        ],
+        answer: "Cascading errors",
+        explanation:
+          "In REST, cascading errors can occur, where the unavailability of one service leads to the unavailability of many. Messaging makes this less likely.",
+      },
+      {
+        text: "What ensures that a message sent using the fire-and-forget model was successfully delivered?",
+        options: [
+          "Correlation ID",
+          "Receipt acknowledgment",
+          "The sender receives an immediate response",
+          "The message is stored in a database",
+        ],
+        answer: "Receipt acknowledgment",
+        explanation:
+          "In the fire-and-forget model, the sender wants to ensure that the message was successfully delivered, and it is implemented by sending a special acknowledgment message.",
+      },
+      {
+        text: "What is a binder similar to in terms of databases?",
+        options: [
+          "SQL code",
+          "Query planner",
+          "Database driver",
+          "Entity relationship",
+        ],
+        answer: "Database driver",
+        explanation:
+          "The binder is compared to a database driver. It is used to create universal code independent of the exact type of the message broker.",
+      },
+      {
+        text: "How does Spring Cloud Stream determine which binder to use by default?",
+        options: [
+          "Based on the application’s location",
+          "Based on the number of binders defined",
+          "From the classpath dependency",
+          "From user input during runtime",
+        ],
+        answer: "From the classpath dependency",
+        explanation:
+          "If there's a dependency on a particular broker, like Kafka, in the classpath, it is automatically configured as the binder.",
+      },
+      {
+        text: "Which tool is being used to send messages to the message broker via Spring Cloud Stream?",
+        options: [
+          "Spring Boot",
+          "Process bridge",
+          "Stream bridge",
+          "Kafka Stream",
+        ],
+        answer: "Stream bridge",
+        explanation:
+          "In the context of Spring Cloud Stream, the StreamBridge utility provides a flexible mechanism to send messages to dynamically chosen destinations (typically message brokers). It abstracts the complexities of dealing directly with the underlying message channels and allows for more dynamic message routing.",
+      },
+      {
+        text: "Which of the following is an advantage of messaging over synchronous communication?",
+        options: [
+          "Provides immediate response",
+          "Allows more even system load",
+          "Faster communication",
+          "No need to scale up for peak loads",
+        ],
+        answer: "Allows more even system load",
+        explanation:
+          "Messaging helps to maintain a uniform system load, allowing to process messages when the system is available and to defer processing during high traffic, unlike synchronous communication which requires immediate responses.",
+      },
+    ],
+  },
 };
