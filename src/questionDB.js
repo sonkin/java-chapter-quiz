@@ -2347,4 +2347,198 @@ export const questionDB = {
       },
     ],
   },
+  11: {
+    title: "Topic 6. Design Patterns",
+    subtitle: "Quiz 1. Creational Patterns",
+    questions: [
+      {
+        text: "What is the main purpose of the Singleton design pattern?",
+        options: [
+          "To create multiple instances of a class",
+          "To ensure only one instance of a class exists",
+          "To create complex objects step-by-step",
+          "For abstract factory creation",
+        ],
+        answer: "To ensure only one instance of a class exists",
+        explanation:
+          "The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance.",
+      },
+      {
+        text: "What is lazy instantiation in the context of Singleton pattern?",
+        options: [
+          "Initializing an object at class loading time",
+          "Creating an instance of a class when it is first used",
+          "Instantiating an object at compile time",
+          "Allocating memory without creating an object",
+        ],
+        answer: "Creating an instance of a class when it is first used",
+        explanation:
+          "Lazy instantiation delays the creation of an instance until it is needed for the first time, optimizing resource usage.",
+      },
+      {
+        text: "Which pattern provides a way to create objects without specifying their concrete classes?",
+        options: ["Builder", "Singleton", "Factory Method", "Prototype"],
+        answer: "Factory Method",
+        explanation:
+          "The Factory Method pattern allows for creating objects without specifying the exact class of object that will be created.",
+      },
+      {
+        text: "What is the primary advantage of the Builder pattern?",
+        options: [
+          "Creating an immutable object",
+          "Ensuring only one instance of a class",
+          "Simplifying complex object construction",
+          "Creating duplicate objects",
+        ],
+        answer: "Simplifying complex object construction",
+        explanation:
+          "The Builder pattern simplifies the creation of complex objects by allowing step-by-step construction.",
+      },
+      {
+        text: "The Prototype pattern is primarily used for:",
+        options: [
+          "Instantiating a class once",
+          "Creating complex objects easily",
+          "Cloning objects",
+          "Creating objects from abstract classes",
+        ],
+        answer: "Cloning objects",
+        explanation:
+          "The Prototype pattern enables creating new objects by copying existing instances, facilitating cloning.",
+      },
+      {
+        text: "In the Singleton pattern, how is global access to the instance typically provided?",
+        options: [
+          "Through a public constructor",
+          "Via a static method",
+          "Through direct public field access",
+          "Using a factory method",
+        ],
+        answer: "Via a static method",
+        explanation:
+          "Singleton typically uses a static method, often named getInstance, to provide global access to the single instance.",
+      },
+      {
+        text: "What is the main difference between Abstract Factory and Factory Method patterns?",
+        options: [
+          "Abstract Factory creates single objects, Factory Method creates families of objects",
+          "Abstract Factory and Factory Method are identical",
+          "Factory Method creates single objects, Abstract Factory creates families of objects",
+          "Factory Method uses inheritance, Abstract Factory uses composition",
+        ],
+        answer:
+          "Factory Method creates single objects, Abstract Factory creates families of objects",
+        explanation:
+          "The Abstract Factory pattern is used for creating families of related objects, while the Factory Method is used for creating single objects.",
+      },
+      {
+        text: "Which pattern is most suitable for creating a complex object with various representations?",
+        options: ["Singleton", "Builder", "Prototype", "Factory Method"],
+        answer: "Builder",
+        explanation:
+          "The Builder pattern is ideal for constructing complex objects with multiple representations, allowing step-by-step construction and varying representations.",
+      },
+      {
+        text: "What does the Prototype pattern primarily focus on?",
+        options: [
+          "Creating an unchangeable object",
+          "Ensuring only one instance of an object",
+          "Cloning existing objects",
+          "Deferring object creation",
+        ],
+        answer: "Cloning existing objects",
+        explanation:
+          "The Prototype pattern is centered around copying or cloning existing objects to create new instances.",
+      },
+      {
+        text: "Which pattern is characterized by a class having a private constructor and a static method to get the instance?",
+        options: ["Factory Method", "Builder", "Singleton", "Prototype"],
+        answer: "Singleton",
+        explanation:
+          "The Singleton pattern is known for having a private constructor to prevent direct instantiation and a static method for accessing the instance.",
+      },
+      {
+        text: "The Factory Method pattern is particularly effective in:",
+        options: [
+          "Creating a single, shared instance of a class",
+          "Building complex objects step-by-step",
+          "Decoupling object creation from its class",
+          "Cloning objects",
+        ],
+        answer: "Decoupling object creation from its class",
+        explanation:
+          "The Factory Method pattern decouples the creation of an object from its class, allowing for greater flexibility and adherence to the Open/Closed principle.",
+      },
+      {
+        text: "What is a key characteristic of the Builder pattern?",
+        options: [
+          "It restricts object creation to a single instance",
+          "It allows constructing complex objects step-by-step",
+          "It focuses on cloning objects",
+          "It creates families of related objects",
+        ],
+        answer: "It allows constructing complex objects step-by-step",
+        explanation:
+          "The Builder pattern allows for the construction of complex objects in a step-by-step manner, enhancing clarity and maintainability.",
+      },
+      {
+        text: "The Prototype pattern is typically implemented using which method in Java?",
+        options: ["getInstance()", "clone()", "build()", "create()"],
+        answer: "clone()",
+        explanation:
+          "The Prototype pattern in Java often involves implementing the clone() method from the Object class to create duplicate objects.",
+      },
+      {
+        text: "Which pattern is best suited for scenarios where object creation logic is complex and should be hidden from the client?",
+        options: ["Singleton", "Builder", "Factory Method", "Prototype"],
+        answer: "Factory Method",
+        explanation:
+          "The Factory Method pattern encapsulates complex object creation logic, providing a simpler interface to the client.",
+      },
+      {
+        text: "What is the primary role of the private constructor in a Singleton pattern?",
+        options: [
+          "To create multiple instances",
+          "To prevent instantiation by other classes",
+          "To initialize class fields",
+          "To clone the object",
+        ],
+        answer: "To prevent instantiation by other classes",
+        explanation:
+          "In the Singleton pattern, the private constructor is used to prevent other classes from directly instantiating the object.",
+      },
+      {
+        text: "The Abstract Factory pattern is used to:",
+        options: [
+          "Create a single instance of a class",
+          "Build complex objects step-by-step",
+          "Provide an interface for creating families of related objects",
+          "Clone existing objects",
+        ],
+        answer: "Provide an interface for creating families of related objects",
+        explanation:
+          "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
+      },
+      {
+        text: "Which pattern allows for the creation of a complex object in a more readable and maintainable way than constructors?",
+        options: ["Singleton", "Builder", "Factory Method", "Prototype"],
+        answer: "Builder",
+        explanation:
+          "The Builder pattern allows for building complex objects in a step-by-step approach, making the code more readable and maintainable compared to using complex constructors.",
+      },
+      {
+        text: "When is the Prototype pattern more efficient than traditional object creation methods?",
+        options: [
+          "When creating a single instance of a class",
+          "When creating complex objects step-by-step",
+          "When an object needs to be created based on an existing object",
+          "When creating unrelated objects",
+        ],
+        answer:
+          "When an object needs to be created based on an existing object",
+        explanation:
+          "The Prototype pattern is more efficient when a new object needs to be created that is a clone or a variation of an existing object, as it avoids the cost of new instantiation and allows for customization.",
+      },
+    ],
+  },
 };
