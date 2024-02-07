@@ -2541,4 +2541,210 @@ export const questionDB = {
       },
     ],
   },
+  12: {
+    title: "Topic 6. Design Patterns",
+    subtitle: "Quiz 2. Structural Patterns",
+    questions: [
+      {
+        text: "Which pattern provides a simplified interface to a complex subsystem?",
+        options: ["Proxy", "Decorator", "Facade", "Bridge"],
+        answer: "Facade",
+        explanation:
+          "The Facade pattern provides a simple interface to a complex subsystem, making the subsystem easier to use without exposing the underlying complexity.",
+      },
+      {
+        text: "What is the main purpose of the Flyweight pattern?",
+        options: [
+          "To ensure a class only has one instance",
+          "To reduce memory usage by sharing as much data as possible with similar objects",
+          "To allow objects to alter their behavior when their internal state changes",
+          "To encapsulate a request as an object",
+        ],
+        answer:
+          "To reduce memory usage by sharing as much data as possible with similar objects",
+        explanation:
+          "The Flyweight pattern is used to reduce memory consumption by sharing common parts of state between multiple objects instead of keeping all of the data in each object.",
+      },
+      {
+        text: "Which pattern involves separating an abstraction from its implementation so that the two can vary independently?",
+        options: ["Adapter", "Composite", "Bridge", "Decorator"],
+        answer: "Bridge",
+        explanation:
+          "The Bridge pattern decouples an abstraction from its implementation, allowing the two to vary independently without affecting each other.",
+      },
+      {
+        text: "What does the Decorator pattern primarily allow for?",
+        options: [
+          "Changing object structures at runtime",
+          "Adding new operations to objects without modifying their classes",
+          "Creating a set of algorithms that can be used interchangeably",
+          "Connecting different classes to perform a task",
+        ],
+        answer:
+          "Adding new operations to objects without modifying their classes",
+        explanation:
+          "The Decorator pattern allows for adding new functionalities to objects dynamically by placing these objects inside special wrapper objects that contain the new functionalities.",
+      },
+      {
+        text: "What is the main benefit of using the Decorator pattern over subclassing?",
+        options: [
+          "It provides a more efficient memory usage",
+          "It adds new functionalities to objects dynamically without changing their structure",
+          "It simplifies complex class hierarchies",
+          "It allows for the creation of objects with specific configurations",
+        ],
+        answer:
+          "It adds new functionalities to objects dynamically without changing their structure",
+        explanation:
+          "The Decorator pattern allows for dynamically adding new functionalities to objects without altering their structure or creating complex class hierarchies through subclassing.",
+      },
+      {
+        text: "Which pattern is used to minimize memory usage by sharing as much as possible with similar objects?",
+        options: ["Singleton", "Flyweight", "Prototype", "Adapter"],
+        answer: "Flyweight",
+        explanation:
+          "The Flyweight pattern is used to share as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.",
+      },
+      {
+        text: "How does the Proxy pattern differ from the Decorator pattern?",
+        options: [
+          "Proxy controls access to an object, while Decorator adds responsibilities to an object",
+          "Proxy provides a simpler interface to a complex system, while Decorator combines interfaces of different classes",
+          "Proxy is used for object creation, while Decorator is used for object composition",
+          "There is no significant difference; both patterns serve the same purpose",
+        ],
+        answer:
+          "Proxy controls access to an object, while Decorator adds responsibilities to an object",
+        explanation:
+          "The Proxy pattern controls access to an object, potentially adding some level of control over its operations or lifecycle, while the Decorator pattern dynamically adds additional responsibilities to the object.",
+      },
+      {
+        text: "What is a characteristic feature of the Flyweight pattern?",
+        options: [
+          "It allows for the dynamic addition of behaviors to individual objects",
+          "It uses sharing to support large numbers of fine-grained objects efficiently",
+          "It restricts object creation to a single instance",
+          "It encapsulates a group of individual objects into a single object",
+        ],
+        answer:
+          "It uses sharing to support large numbers of fine-grained objects efficiently",
+        explanation:
+          "The Flyweight pattern is characterized by its use of sharing to support a large number of fine-grained objects efficiently.",
+      },
+      {
+        text: "Which pattern is used to add new functionality to an object without altering its structure?",
+        options: ["Adapter", "Composite", "Decorator", "Proxy"],
+        answer: "Decorator",
+        explanation:
+          "The Decorator pattern allows for new functionality to be added to an object dynamically without changing its structure, by wrapping it inside a decorator class with the new functionality.",
+      },
+      {
+        text: "The Flyweight pattern is primarily used for what purpose?",
+        options: [
+          "To ensure a class has only one instance",
+          "To improve memory efficiency by sharing objects",
+          "To build a complex object step by step",
+          "To adapt the interface of a class",
+        ],
+        answer: "To improve memory efficiency by sharing objects",
+        explanation:
+          "The Flyweight pattern is used to improve memory efficiency by sharing fine-grained objects that are similar to each other, thus saving resources.",
+      },
+      {
+        text: "How does the Adapter pattern work?",
+        options: [
+          "By changing an object's interface",
+          "By adding new functionality to an object",
+          "By sharing object instances",
+          "By creating a composite structure",
+        ],
+        answer: "By changing an object's interface",
+        explanation:
+          "The Adapter pattern works by changing the interface of one or more classes.",
+      },
+      {
+        text: "Which pattern allows you to put objects into tree structures to represent part-whole hierarchies?",
+        options: ["Decorator", "Composite", "Facade", "Proxy"],
+        answer: "Composite",
+        explanation:
+          "The Composite pattern enables clients to treat individual objects and compositions of objects uniformly.",
+      },
+      {
+        text: "What characterizes the Flyweight pattern?",
+        options: [
+          "Managing a set of algorithms and dynamically letting the algorithm vary independently from clients that use it",
+          "Allowing an object to alter its behavior when its internal state changes",
+          "Ensuring that a class has only one instance and provides a global point of access to it",
+          "Reducing the number of objects that are required by a program at runtime",
+        ],
+        answer:
+          "Reducing the number of objects that are required by a program at runtime",
+        explanation:
+          "The Flyweight pattern is used to reduce the memory footprint of a program by sharing as much data as possible with related objects; it is particularly useful when a large number of objects are needed.",
+      },
+      {
+        text: "In the context of the Adapter pattern, what is NOT true?",
+        options: [
+          "It's used to make existing classes work with others without modifying their source code",
+          "It can be implemented using inheritance or composition",
+          "It's mainly used to introduce new functionality to an object",
+          "It helps in converting the interface of a class into another interface clients expect",
+        ],
+        answer: "It's mainly used to introduce new functionality to an object",
+        explanation:
+          "The Adapter pattern is not primarily used to add new functionality to an object but to allow existing objects with incompatible interfaces to work together.",
+      },
+      {
+        text: "What is NOT a use case for the Facade pattern?",
+        options: [
+          "To make a library easier to use, understand, and test",
+          "To provide a simple interface to a complex subsystem",
+          "To prevent changes in a subsystem from affecting its clients",
+          "To add new functionality to a subsystem without changing its interface",
+        ],
+        answer:
+          "To add new functionality to a subsystem without changing its interface",
+        explanation:
+          "While the Facade pattern simplifies the interface of a subsystem and shields clients from its internal complexity, it is not intended to add new functionality to the subsystem itself but rather to make it easier to use.",
+      },
+      {
+        text: "What is NOT a characteristic of the Flyweight pattern?",
+        options: [
+          "It involves sharing to support large numbers of fine-grained objects efficiently",
+          "It is used to add new functionality to an object dynamically",
+          "It reduces memory usage",
+          "It is often used in the implementation of stateless objects",
+        ],
+        answer: "It is used to add new functionality to an object dynamically",
+        explanation:
+          "The Flyweight pattern's primary characteristic is to minimize memory usage by sharing as much state as possible among similar objects, not to add functionality dynamically—that's the Decorator pattern.",
+      },
+      {
+        text: "What is NOT a use case for the Decorator pattern?",
+        options: [
+          "Adding responsibilities to an object dynamically without modifying its code",
+          "Allowing for the extension of an object's behavior without using inheritance",
+          "Providing a unified interface to a set of interfaces in a subsystem",
+          "Offering a flexible alternative to subclassing for extending functionality",
+        ],
+        answer:
+          "Providing a unified interface to a set of interfaces in a subsystem",
+        explanation:
+          "The Decorator pattern is utilized for adding new responsibilities to an object dynamically and providing a flexible alternative to subclassing for extending an object's behavior. It does not aim to provide a unified interface to a set of interfaces in a subsystem; that is the main goal of the Facade pattern.",
+      },
+      {
+        text: "What problem does the Bridge pattern aim to solve?",
+        options: [
+          "The difficulty of adding new operations to existing object structures without modifying those structures",
+          "The challenge of ensuring that only one instance of a class is created in a distributed system",
+          "The explosion of subclass combinations needed to support multiple platform-specific versions of an abstraction",
+          "The need for an object to change its class at runtime based on its state",
+        ],
+        answer:
+          "The explosion of subclass combinations needed to support multiple platform-specific versions of an abstraction",
+        explanation:
+          "The Bridge pattern addresses the problem of avoiding an 'explosion' of subclass combinations that can occur when trying to extend an abstraction across multiple dimensions (e.g., platform-specific variations). By separating an abstraction from its implementation, the Bridge pattern allows each to be varied independently without creating a dense class hierarchy.",
+      },
+    ],
+  },
 };
